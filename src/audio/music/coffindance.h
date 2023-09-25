@@ -1,0 +1,1 @@
+void play_coffindance(int buzzer);

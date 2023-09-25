@@ -1,0 +1,1 @@
+void play_homealone(int buzzer);
