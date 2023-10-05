@@ -4,7 +4,19 @@
 
 struct language
 {
+   String code;
    String language;
+
+   String language_de;
+   String language_en;
+   String language_fr;
+   String language_it;
+   String language_tr;
+   String language_es;
+   String language_uk;
+   String language_pl;
+   String language_ru;
+   String language_ro;
 
    String menubar_menu;
    String menubar_select;
@@ -113,8 +125,31 @@ struct language
    String color_outline;
 };
 
-language en = {"English",
-               "MENU", "SELECT", "SAVE", "BACK",
+language de = {"de", "Deutsch",
+               "Deutsch", "Englisch", "Französisch", "Italienisch", "Türkisch", "Spanisch", "Ukrainisch", "Polnisch", "Russisch", "Rumänisch",
+               "MENÜ", "AUSWÄHLEN", "SPEICHERN", "ZURÜCK",
+               "Menü", "Alarmmitteil.", "Textmitteil.", "Audio-Profile", "Einstellungen", "Wecker", "Service",
+               "Lautlos", "25%", "50%", "75%", "Normal",
+               "Helligkeit", "Uhrzeit", "Datum", "Tastenton", "Sprache", "Orientierung", "Theme",
+               "Eingeschaltet", "Ausgeschaltet",
+               "Helligkeit setzen", "Uhrzeit setzen",
+               "Jahr", "Monat", "Tag",
+               "Jahr setzen", "Monat setzen", "Tag setzen",
+               "Weckzeit setzen",
+               "Hardware", "Software", "Teilnehmer",
+               "Info", "Größe", "Kompiliert am", "Kerne", "Geschwindigkeit", "ISSI",
+               "Adresse", "Kommentar",
+               "Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag", "Samstag", "Sonntag",
+               "Mo.", "Di.", "Mi.", "Do.", "Fr.", "Sa.", "So.",
+               "Januar", "Februar", "März", "April", "Mai", "Juni", "Juli", "August", "September", "Oktober", "November", "Dezember",
+               "Jan.", "Feb.", "Mrz.", "Apr.", "Mai", "Jun.", "Jul.", "Aug.", "Sep.", "Okt.", "Nov.", "Dez.",
+               "Vertikal", "Horizontal",
+               "Farbe", "Schwarz & Weiß", "Linie"};
+
+language en = {"en", "English",
+               "German", "English", "French", "Italian", "Turkish", "Spanish", "Ukrainian", "Polish", "Russian", "Romanian",
+               "MENU",
+               "SELECT", "SAVE", "BACK",
                "Menu", "Alarmmessages", "Textmessages", "Audio-Profiles", "Settings", "Alarmclock", "Service",
                "Silent", "25%", "50%", "75%", "Normal",
                "Brightness", "Time", "Date", "Buttonsound", "Language", "Orientation", "Theme",
@@ -133,25 +168,173 @@ language en = {"English",
                "Vertical", "Horizontal",
                "Color", "Black & White", "Outline"};
 
-language de = {"Deutsch",
-               "MENÜ", "AUSWÄHLEN", "SPEICHERN", "ZURÜCK",
-               "Menü", "Alarmmitteil.", "Textmitteil.", "Audio-Profile", "Einstellungen", "Wecker", "Service",
-               "Lautlos", "25%", "50%", "75%", "Normal",
-               "Helligkeit", "Uhrzeit", "Datum", "Tastenton", "Sprache", "Orientierung", "Theme",
-               "Eingeschaltet", "Ausgeschaltet",
-               "Helligkeit setzen", "Uhrzeit setzen",
-               "Jahr", "Monat", "Tag",
-               "Jahr setzen", "Monat setzen", "Tag setzen",
-               "Weckzeit setzen",
-               "Hardware", "Software", "Teilnehmer",
-               "Info", "Größe", "Kompiliert am", "Kerne", "Geschwindigkeit", "ISSI",
-               "Adresse", "Kommentar",
-               "Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag", "Samstag", "Sonntag",
-               "Mo.", "Di.", "Mi.", "Do.", "Fr.", "Sa.", "So.",
-               "Januar", "Februar", "März", "April", "Mai", "Juni", "Juli", "August", "September", "Oktober", "November", "Dezember",
-               "Jan.", "Feb.", "Mrz.", "Apr.", "Mai", "Jun.", "Jul.", "Aug.", "Sep.", "Okt.", "Nov.", "Dez.",
-               "Vertikal", "Horizontal",
-               "Farbe", "Schwarz & Weiß", "Outline"};
+language fr = {"fr", "Français",
+               "Allemand", "Anglais", "Français", "Italien", "Turc", "Espagnol", "Ukrainien", "Polonais", "Russe", "Roumain",
+               "MENU", "CHOISIR", "SAUVEGARDER", "DOS",
+               "Menu", "Notification d'alarme", "Notification", "Profils audio", "Paramètres", "Réveil", "Service",
+               "Silencieusement", "25%", "50%", "75%", "Normale",
+               "Luminosité", "Temps", "Date", "Tonalité", "Langue", "orientation", "Thème",
+               "Allumé", "Éteint",
+               "Régler la luminosité", "Régler le temps",
+               "Année", "Mois", "Jour",
+               "Définir l'année", "Définir le mois", "Définir le jour",
+               "Régler l'heure de l'alarme",
+               "Matériel", "Logiciel", "Participant",
+               "Info", "Taille", "Compilé sur", "Noyaux", "Vitesse", "ISSI",
+               "Adresse", "Commentaire",
+               "Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi", "Dimanche",
+               "Lu.", "Ma.", "Me.", "Je.", "Ve.", "Sa.", "Di.",
+               "Janvier", "Février", "Mars", "Avril", "Mai", "Juin", "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Décembre",
+               "Janv.", "Févr.", "Mars", "Avr.", "Mai", "Juin", "Juil.", "Août", "Sept.", "Oct.", "Nov.", "Déc.",
+               "Verticale", "Horizontale",
+               "Couleur", "Noir et blanc", "Contour"};
+
+language it = {"it", "Italiano",
+               "Tedesco", "Inglese", "Francese", "Italiano", "Turco", "Spagnolo", "Ucraino", "Polacco", "Russo", "Rumeno",
+               "MENU", "SELEZIONA", "SALVA", "INDIETRO",
+               "Menu", "Notifica sveglia", "Notifica SMS", "Profili audio", "Impostazioni", "Sveglia", "Servizio",
+               "Silenzioso", "25%", "50%", "75%", "Normale",
+               "Luminosità", "Ora", "Data", "Tono tasti", "Lingua", "Orientamento", "Tema",
+               "Acceso", "Spento",
+               "Imposta luminosità", "Imposta ora",
+               "Anno mese giorno",
+               "Imposta anno", "Imposta mese", "Imposta giorno",
+               "Imposta l'ora della sveglia",
+               "Hardware", "Software", "Partecipanti",
+               "Informazioni", "Dimensione", "Data compilazione", "Cores", "Velocità", "ISSI",
+               "Indirizzo", "Commento",
+               "Lunedì", "martedì", "mercoledì", "giovedì", "venerdì", "sabato", "domenica",
+               "Lun.", "Mar.", "Mer.", "Giovedì.", "Ven.", "Sab.", "Domenica.",
+               "Gennaio", "Febbraio", "Marzo", "Aprile", "Maggio", "Giugno", "Luglio", "Agosto", "Settembre", "Ottobre", "Novembre", "Dicembre",
+               "Gen.", "Feb.", "Mar.", "Apr.", "Maggio", "Giu.", "Lug.", "Ago.", "Set.", "Ott.", " Nov.", "Dic.",
+               "Verticale orizzontale",
+               "Colore", "Bianco e nero", "Linea"};
+
+language tr = {"tr", "Türkçe",
+               "Almanca", "İngilizce", "Fransızca", "İtalyanca", "Türkçe", "İspanyolca", "Ukraynaca", "Lehçe", "Rusça", "Romence",
+               "MENÜ", "SEÇMEK", "KAYDETMEK", "GERİ",
+               "Menü", "Alarm bildirimleri", "Metin mesajları", "Ses profilleri", "Ayarlar", "Alarm saati", "Hizmet",
+               "Sessizce", "25%", "50%", "75%", "Normal",
+               "Parlaklık", "Zaman", "Tarih", "Tuş sesi", "Dil", "Oryantasyon", "Tema",
+               "Açık", "Kapalı",
+               "Parlaklığı ayarla", "Ayarlanan zaman",
+               "Yıl", "Ay", "Gün",
+               "Yılı ayarla", "Ayı ayarla", "Günü ayarla",
+               "Alarm zamanını ayarla",
+               "Donanım", "Yazılım", "Katılımcı",
+               "Bilgi", "Boyut", "Derlendiği tarih", "çekirdekler", "Hız", "ISSI",
+               "Adres", "Yorum",
+               "Pazartesi", "Salı", "Çarşamba", "Perşembe", "Cuma", "Cumartesi", "Pazar",
+               "Pzt.", "Sal.", "Çar.", "Per.", "Cum.", "Cmt.", "Paz.",
+               "Ocak", "Şubat", "Mart", "Nisan", "Mayıs", "Haziran", "Temmuz", "Ağustos", "Eylül", "Ekim", "Kasım", "Aralık",
+               "Ocak", "Şubat", "Mart", "Nisan", "Mayıs", "Haziran", "Temmuz", "Ağustos", "Eylül", "Ekim", "Kasım", "Aralık",
+               "Dikey", "Yatay",
+               "Renk", "Siyah ve beyaz", "Astar"};
+
+language es = {"es", "español",
+               "alemán", "inglés", "francés", "italiano", "turco", "español", "ucraniano", "polaco", "ruso", "rumano",
+               "MENÚ", "SELECCIONAR", "GUARDAR", "ATRÁS",
+               "Menú", "Notificación de alarma", "Notificación de texto", "Perfiles de audio", "Configuración", "Despertador", "Servicio",
+               "Silencio", "25%", "50%", "75%", "Normal",
+               "Brillo", "Hora", "Fecha", "Tono de tecla", "Idioma", "Orientación", "Tema",
+               "Encendido", "Apagado",
+               "Establecer brillo", "Establecer hora",
+               "Año mes dia",
+               "Establecer año", "Establecer mes", "Establecer día",
+               "Establecer hora de alarma",
+               "Hardware", "Software", "Participantes",
+               "Información", "Tamaño", "Fecha de compilación", "Núcleos", "Velocidad", "ISSI",
+               "Dirección", "Comentario",
+               "Lunes martes Miércoles Jueves Viernes Sábado Domingo",
+               "lunes", "martes", "miércoles", "jueves", "viernes", "sábado", "domingo",
+               "enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre",
+               "Ene.", "Feb.", "Mar.", "Abr.", "May", "Jun.", "Jul.", "Ago.", "Sep.", "Oct.", " noviembre.", "dic.",
+               "Vertical horizontal",
+               "Color", "Blanco y negro", "Línea"};
+
+language uk = {"uk", "Польська",
+               "Німецька", "Англійська", "Французька", "Італійська", "Турецька", "Іспанська", "Українська", "Польська", "Російська", "Румунська",
+               "МЕНЮ", "ВИБІР", "ЗБЕРЕГТИ", "НАЗАД",
+               "Меню", "Будильник", "Текстове сповіщення", "Аудіопрофілі", "Налаштування", "Будильник", "Сервіс",
+               "Без звуку", "25%", "50%", "75%", "Звичайний",
+               "Яскравість", "Час", "Дата", "Тон клавіш", "Мова", "Орієнтація", "Тема",
+               "Ввімкнено", "Вимкнено",
+               "Встановити яскравість", "Встановити час",
+               "Рік місяць день",
+               "Установити рік", "Установити місяць", "Установити день",
+               "Установити час будильника",
+               "Апаратне забезпечення", "Програмне забезпечення", "Учасники",
+               "Інформація", "Розмір", "Дата компіляції", "Ядра", "Швидкість", "ISSI",
+               "Адреса", "Коментар",
+               "Понеділок вівторок середа четвер п'ятниця субота неділя",
+               "Пн.", "Вт.", "Ср.", "Чт.", "Пт.", "Сб.", "Нд.",
+               "Січень", "Лютий", "Березень", "Квітень", "Травень", "Червень", "Липень", "Серпень", "Вересень", "Жовтень", "Листопад", "Грудень",
+               "Січ.", "Лют.", "Берез.", "Квіт.", "Травень", "Черв.", "Лип.", "Серп.", "Вер.", "Жовт.", "лист.", "грудень",
+               "Вертикаль", "Горизонталь",
+               "Колір", "Чорно-біле", "Лінія"};
+
+language pl = {"pl", "polski",
+               "niemiecki", "angielski", "francuski", "włoski", "turecki", "hiszpański", "ukraiński", "polski", "rosyjski", "rumuński",
+               "MENU", "WYBIERZ", "ZAPISZ", "WSTECZ",
+               "Menu", "Powiadomienie o alarmie", "Powiadomienie SMS", "Profile audio", "Ustawienia", "Budzik", "Serwis",
+               "Cichy", "25%", "50%", "75%", "Normalny",
+               "Jasność", "Czas", "Data", "Dźwięk klawiszy", "Język", "Orientacja", "Motyw",
+               "Włączony", "Wyłączony",
+               "Ustaw jasność", "Ustaw czas",
+               "Rok miesiąc dzień",
+               "Ustaw rok", "Ustaw miesiąc", "Ustaw dzień",
+               "Ustaw godzinę alarmu",
+               "Sprzęt", "Oprogramowanie", "Uczestnicy",
+               "Informacje", "Rozmiar", "Data kompilacji", "Rdzenie", "Prędkość", "ISSI",
+               "Adres", "Komentarz",
+               "Poniedziałek wtorek środa czwartek piątek sobota niedziela",
+               "Poniedziałek", "Wtorek", "Środa", "Czwartek", "Piątek", "Sobota", "Niedziela",
+               "styczeń", "luty", "marzec", "kwiecień", "maj", "czerwiec", "lipiec", "sierpień", "wrzesień", "październik", "listopad", "grudzień",
+               "styczeń", "luty", "marzec", "kwiecień", "maj", "czerwiec", "lipiec", "sierpień", "wrzesień", "październik", " listopad", "grudzień",
+               "Wertykalny horyzontalny",
+               "Kolor", "Czarno-biały", "Linia"};
+
+language ru = {"ru", "Русский",
+               "Немецкий", "Английский", "Французский", "Итальянский", "Турецкий", "Испанский", "Украинский", "Польский", "Русский", "Румынский",
+               "МЕНЮ", "ВЫБРАТЬ", "СОХРАНИТЬ", "НАЗАД",
+               "Меню", "Уведомление о будильнике", "Текстовое уведомление", "Аудиопрофили", "Настройки", "Будильник", "Сервис",
+               "Без звука", "25%", "50%", "75%", "Нормальный",
+               "Яркость", "Время", "Дата", "Тональность", "Язык", "Ориентация", "Тема",
+               "Включено", "Выключено",
+               "Установить яркость", "Установить время",
+               "Год месяц день",
+               "Установить год", "Установить месяц", "Установить день",
+               "Установить время будильника",
+               "Оборудование", "Программное обеспечение", "Участники",
+               "Информация", "Размер", "Дата компиляции", "Ядра", "Скорость", "ISSI",
+               "Адрес", "Комментарий",
+               "Понедельник", "вторник", "среда", "Четверг", "Пятница", "Суббота", "воскресенье",
+               "Пн.", "Вт.", "Ср.", "Чт.", "Пт.", "Сб.", "Вс.",
+               "Январь", "Февраль", "Март", "Апрель", "Май", "Июнь", "Июль", "Август", "Сентябрь", "Октябрь", "Ноябрь", "Декабрь",
+               "Январь", "Февраль", "Март", "Апрель", "Май", "Июнь", "Июль", "Август", "Сентябрь", "Октябрь", "Ноябрь", "Декабрь",
+               "Вертикальный горизонтальный",
+               "Цвет", "Черно-белое", "Линия"};
+
+language ro = {"ro", "română",
+               "Germană", "engleză", "franceză", "italiană", "turcă", "spaniolă", "ucraineană", "poloneză", "rusă", "română",
+               "MENIU", "SELECTARE", "SAVE", "ÎNAPOI",
+               "Meniu", "Notificare alarmă", "Notificare text", "Profiluri audio", "Setări", "Ceas alarmă", "Serviciu",
+               "Silențios", "25%", "50%", "75%", "Normal",
+               "Luminozitate", "Ora", "Data", "Tonul tastei", "Limba", "Orientare", "Temă",
+               "Pornit", "Oprit",
+               "Setați luminozitatea", "Setați ora",
+               "An lună zi",
+               "Setați anul", "Setați luna", "Setați ziua",
+               "Setați ora alarmei",
+               "Hardware", "Software", "Participanți",
+               "Informații", "Dimensiune", "Data compilată", "Miezuri", "Viteză", "ISSI",
+               "Adresă", "Comentariu",
+               "Luni marti miercuri joi vineri sambata Duminica",
+               "Luni", "Marți", "Mier.", "Joi", "Vineri", "Sâmbătă", "Dum.",
+               "Ianuarie", "Februarie", "Martie", "Aprilie", "Mai", "Iunie", "Iulie", "August", "Septembrie", "Octombrie", "Noiembrie", "Decembrie",
+               "Ian.", "Feb.", "Mar.", "Apr.", "Mai", "Iun.", "Iul.", "Aug.", "Sept.", "Oct.", " noiembrie", "dec.",
+               "Vertical orizontal",
+               "Culoare", "Alb-negru", "Linie"};
 
 language current_lang = de;
 
@@ -161,6 +344,51 @@ void setLanguage(String lang)
    {
       current_lang = de;
       i18n = "de";
+   }
+   else if (lang.equalsIgnoreCase("en"))
+   {
+      current_lang = en;
+      i18n = "en";
+   }
+   else if (lang.equalsIgnoreCase("fr"))
+   {
+      current_lang = fr;
+      i18n = "fr";
+   }
+   else if (lang.equalsIgnoreCase("it"))
+   {
+      current_lang = it;
+      i18n = "it";
+   }
+   else if (lang.equalsIgnoreCase("tr"))
+   {
+      current_lang = tr;
+      i18n = "tr";
+   }
+   else if (lang.equalsIgnoreCase("es"))
+   {
+      current_lang = es;
+      i18n = "es";
+   }
+   else if (lang.equalsIgnoreCase("uk"))
+   {
+      current_lang = uk;
+      i18n = "uk";
+   }
+   else if (lang.equalsIgnoreCase("pl"))
+   {
+      current_lang = pl;
+      i18n = "pl";
+   }
+   else if (lang.equalsIgnoreCase("ru"))
+   {
+      current_lang = ru;
+      i18n = "ru";
+   }
+   else if (lang.equalsIgnoreCase("ro"))
+   {
+      current_lang = ro;
+      i18n = "ro";
    }
    else
    {
@@ -181,10 +409,55 @@ void initLanguage()
 
 String getI18n(String stringId)
 {
-   if (stringId.equalsIgnoreCase("language"))
+   if (stringId.equalsIgnoreCase("code"))
+   {
+      return current_lang.code;
+   }
+   else if (stringId.equalsIgnoreCase("language"))
    {
       return current_lang.language;
    }
+   else if (stringId.equalsIgnoreCase("language_de"))
+   {
+      return current_lang.language_de;
+   }
+   else if (stringId.equalsIgnoreCase("language_en"))
+   {
+      return current_lang.language_en;
+   }
+   else if (stringId.equalsIgnoreCase("language_fr"))
+   {
+      return current_lang.language_fr;
+   }
+   else if (stringId.equalsIgnoreCase("language_it"))
+   {
+      return current_lang.language_it;
+   }
+   else if (stringId.equalsIgnoreCase("language_tr"))
+   {
+      return current_lang.language_tr;
+   }
+   else if (stringId.equalsIgnoreCase("language_es"))
+   {
+      return current_lang.language_es;
+   }
+   else if (stringId.equalsIgnoreCase("language_uk"))
+   {
+      return current_lang.language_uk;
+   }
+   else if (stringId.equalsIgnoreCase("language_pl"))
+   {
+      return current_lang.language_pl;
+   }
+   else if (stringId.equalsIgnoreCase("language_ru"))
+   {
+      return current_lang.language_ru;
+   }
+   else if (stringId.equalsIgnoreCase("language_ro"))
+   {
+      return current_lang.language_ro;
+   }
+
    else if (stringId.equalsIgnoreCase("menubar_menu"))
    {
       return current_lang.menubar_menu;

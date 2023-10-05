@@ -121,23 +121,24 @@ import java.awt.Desktop; // Required to allow sketch to open file windows
 // When the sketch is run it will generate a file called "systemFontList.txt" in the sketch folder, press Ctrl+K to see it.
 // Open the "systemFontList.txt" in a text editor to view the font files and reference numbers for your system.
 
-int fontNumber = -1; // << Use [Number] in brackets from the fonts listed.
+int fontNumber = 318; // << Use [Number] in brackets from the fonts listed.
 
 // OR use font name for ttf files placed in the "Data" folder or the font number seen in IDE Console for system fonts
 //                                                  the font numbers are listed when the sketch is run.
 //                |         1         2     |       Maximum filename size for SPIFFS is 31 including leading /
 //                 1234567890123456789012345        and added point size and .vlw extension, so max is 25
-String fontName = "Final-Frontier";  // Manually crop the filename length later after creation if needed
+String fontName = "JostMedium";  // Manually crop the filename length later after creation if needed
                                      // Note: SPIFFS does NOT accept underscore in a filename!
 String fontType = ".ttf";
 //String fontType = ".otf";
 
 
 // Define the font size in points for the TFT_eSPI font file
-int  fontSize = 20;
+int fontSize = 32;
+int[] fontSizes = {8, 12, 16, 24, 32,};
 
 // Font size to use in the Processing sketch display window that pops up (can be different to above)
-int displayFontSize = 28;
+int displayFontSize = 24;
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Next we specify which unicode blocks from the the Basic Multilingual Plane (BMP) are included in the final font file. //
@@ -152,8 +153,9 @@ static final int[] unicodeBlocks = {
 
   // Block range,   //Block name, Code points, Assigned characters, Scripts
   // First, last,   //Range is inclusive of first and last codes
-  0x0021, 0x007E, //Basic Latin, 128, 128, Latin (52 characters), Common (76 characters)
+  //0x0021, 0x007E, //Basic Latin, 128, 128, Latin (52 characters), Common (76 characters)
   //0x0080, 0x00FF, //Latin-1 Supplement, 128, 128, Latin (64 characters), Common (64 characters)
+  //0x00A1, 0x00FF, //Latin-1 Supplement, 128, 128, Latin (64 characters), Common (64 characters)
   //0x0100, 0x017F, //Latin Extended-A, 128, 128, Latin
   //0x0180, 0x024F, //Latin Extended-B, 208, 208, Latin
   //0x0250, 0x02AF, //IPA Extensions, 96, 96, Latin
@@ -318,11 +320,19 @@ static final int[] unicodeBlocks = {
   //0x0030, 0x0039, //Example custom range (numbers 0-9)
   //0x0041, 0x005A, //Example custom range (Upper case A-Z)
   //0x0061, 0x007A, //Example custom range (Lower case a-z)
+  
+  //0x0021, 0xFFFF, //All
 };
 
 // Here we specify particular individual Unicodes to be included (appended at end of selected range)
 static final int[] specificUnicodes = {
 
+  //German Unicodes
+  0x00DF, 0x00E4, 0x00F6, 0x00FC, 0x00C4, 0x00D6, 0x00DC,
+  
+  
+  
+  
   // Commonly used codes, add or remove // in next line
   // 0x00A3, 0x00B0, 0x00B5, 0x03A9, 0x20AC, // £ ° µ Ω €
 
@@ -417,6 +427,12 @@ void setup() {
 
   count += specificUnicodes.length;
 
+
+
+
+
+
+
   println();
   println("=====================");
   println("Creating font file...");
@@ -456,6 +472,8 @@ void setup() {
   // Create the font in memory
   myFont = createFont(fontName+fontType, displayFontSize, smooth, charset);
 
+
+
   // Print characters to the sketch window
   fill(0, 0, 0);
   textFont(myFont);
@@ -477,6 +495,8 @@ void setup() {
 
       int unicode = charset[index];
       float cwidth = textWidth((char)unicode) + 2;
+      println(new String(Character.toChars(unicode)));
+      println(cwidth);
       if ( (x + cwidth) > (width - gapx) ) break;
 
       // Draw the glyph to the screen
@@ -493,31 +513,19 @@ void setup() {
 
 
   // creating font to save as a file
-  PFont    font;
+for (int i = 0; i < fontSizes.length; i++) {
+  PFont    font2;
+  font2 = createFont(fontName+fontType, fontSizes[i], smooth, charset);
+ println("Created font " + fontName + str(fontSizes[i]) + ".vlw");
+ try {
+    println("Saving to sketch FontFiles folder... ");
 
-  font = createFont(fontName+fontType, fontSize, smooth, charset);
-
-  println("Created font " + fontName + str(fontSize) + ".vlw");
-
-  // creating file
-  try {
-    print("Saving to sketch FontFiles folder... ");
-
-    OutputStream output = createOutput("FontFiles/" + fontName + str(fontSize) + ".vlw");
-    font.save(output);
+    OutputStream output = createOutput("FontFiles/" + fontName + str(fontSizes[i]) + ".vlw");
+    font2.save(output);
     output.close();
-
-    println("OK!");
-
-    delay(100);
-
-    // Open up the FontFiles folder to access the saved file
-    String path = sketchPath();
-    Desktop.getDesktop().open(new File(path+"/FontFiles"));
-
-    System.err.println("All done! Note: Rectangles are displayed for non-existant characters.");
-  }
-  catch(IOException e) {
+ }
+ catch(IOException e) {
     println("Doh! Failed to create the file");
   }
+}
 }
