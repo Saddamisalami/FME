@@ -61,34 +61,13 @@ void drawMenu_h(TFT_eSPI &tft, TFT_eSprite &sprMenu1, TFT_eSprite &sprMenu2)
     sprMenu1.setTextDatum(MC_DATUM);
     sprMenu1.setColorDepth(16);
     sprMenu1.setTextColor(TFT_BLACK, TFT_WHITE);
-    if (giessen_mode == true)
-    {
-      sprMenu1.loadFont("GiessenFutura12");
-    }
-    else
-    {
-      sprMenu1.loadFont("JostMedium12");
-    }
+    sprMenu1.loadFont("JostMedium12");
     sprMenu1.drawNumber(currentMenuGroup, xposition - 6, textPositionTop);
-    if (giessen_mode == true)
-    {
-      sprMenu1.loadFont("GiessenFutura16");
-    }
-    else
-    {
-      sprMenu1.loadFont("JostMedium16");
-    }
+    sprMenu1.loadFont("JostMedium16");
     if (currentMenu == 1)
     {
       sprMenu1.drawString(getI18n("menu_menu"), xposition / 2, textPositionTop);
-      if (giessen_mode == true)
-      {
-        sprMenu1.loadFont("GiessenFutura24");
-      }
-      else
-      {
-        sprMenu1.loadFont("JostMedium24");
-      }
+      sprMenu1.loadFont("JostMedium24");
       sprMenu1.drawString(getI18n("menu_alarmmessages"), xposition / 2, textPositionBottom);
       pushImageFromFS(getIcon("Alarm_48"), middleWidth - 31, yposition, tft);
     }
@@ -100,14 +79,7 @@ void drawMenu_h(TFT_eSPI &tft, TFT_eSprite &sprMenu1, TFT_eSprite &sprMenu2)
       sprMenu2.setTextDatum(MC_DATUM);
       sprMenu2.setColorDepth(16);
       sprMenu2.setTextColor(TFT_BLACK, TFT_WHITE);
-      if (giessen_mode == true)
-      {
-        sprMenu2.loadFont("GiessenFutura16");
-      }
-      else
-      {
-        sprMenu2.loadFont("JostMedium16");
-      }
+      sprMenu2.loadFont("JostMedium16");
       sprMenu2.drawString(getAlarmTypeText(getAlarmType(displayAlarm)), xposition / 2, 10);
 
       unsigned int alarmLength = getAlarmAdress(displayAlarm).length();
@@ -564,14 +536,7 @@ void drawMenu_h(TFT_eSPI &tft, TFT_eSprite &sprMenu1, TFT_eSprite &sprMenu2)
     else if (currentMenu == 2)
     {
       sprMenu1.drawString(getI18n("menu_menu"), xposition / 2, textPositionTop);
-      if (giessen_mode == true)
-      {
-        sprMenu1.loadFont("GiessenFutura24");
-      }
-      else
-      {
-        sprMenu1.loadFont("JostMedium24");
-      }
+      sprMenu1.loadFont("JostMedium24");
       sprMenu1.drawString(getI18n("menu_textmessages"), xposition / 2, textPositionBottom);
       pushImageFromFS(getIcon("Text_48"), middleWidth - 31, yposition, tft);
     }
@@ -583,14 +548,7 @@ void drawMenu_h(TFT_eSPI &tft, TFT_eSprite &sprMenu1, TFT_eSprite &sprMenu2)
       sprMenu2.setTextDatum(MC_DATUM);
       sprMenu2.setColorDepth(16);
       sprMenu2.setTextColor(TFT_BLACK, TFT_WHITE);
-      if (giessen_mode == true)
-      {
-        sprMenu2.loadFont("GiessenFutura16");
-      }
-      else
-      {
-        sprMenu2.loadFont("JostMedium16");
-      }
+      sprMenu2.loadFont("JostMedium16");
       sprMenu2.drawString(String(getMessageRead(displayMessage)), xposition / 2, 10);
       sprMenu2.drawString(getMessageText(displayMessage), xposition / 2, 23);
       showSubSprite = true;
@@ -598,126 +556,63 @@ void drawMenu_h(TFT_eSPI &tft, TFT_eSprite &sprMenu1, TFT_eSprite &sprMenu2)
     else if (currentMenu == 3)
     {
       sprMenu1.drawString(getI18n("menu_menu"), xposition / 2, textPositionTop);
-      if (giessen_mode == true)
-      {
-        sprMenu1.loadFont("GiessenFutura24");
-      }
-      else
-      {
-        sprMenu1.loadFont("JostMedium24");
-      }
+      sprMenu1.loadFont("JostMedium24");
       sprMenu1.drawString(getI18n("menu_audioprofiles"), xposition / 2, textPositionBottom);
       pushImageFromFS(getIcon("Sound100_48"), middleWidth - 24, yposition, tft);
     }
     else if (currentMenu == 31)
     {
       sprMenu1.drawString(getI18n("menu_audioprofiles"), xposition / 2, textPositionTop);
-      if (giessen_mode == true)
-      {
-        sprMenu1.loadFont("GiessenFutura24");
-      }
-      else
-      {
-        sprMenu1.loadFont("JostMedium24");
-      }
+      sprMenu1.loadFont("JostMedium24");
       sprMenu1.drawString(getI18n("menu_audio_silent"), xposition / 2, textPositionBottom);
       pushImageFromFS(getIcon("Sound000_48"), middleWidth - 24, yposition, tft);
     }
     else if (currentMenu == 32)
     {
       sprMenu1.drawString(getI18n("menu_audioprofiles"), xposition / 2, textPositionTop);
-      if (giessen_mode == true)
-      {
-        sprMenu1.loadFont("GiessenFutura24");
-      }
-      else
-      {
-        sprMenu1.loadFont("JostMedium24");
-      }
+      sprMenu1.loadFont("JostMedium24");
       sprMenu1.drawString(getI18n("menu_audio_25"), xposition / 2, textPositionBottom);
       pushImageFromFS(getIcon("Sound025_48"), middleWidth - 24, yposition, tft);
     }
     else if (currentMenu == 33)
     {
       sprMenu1.drawString(getI18n("menu_audioprofiles"), xposition / 2, textPositionTop);
-      if (giessen_mode == true)
-      {
-        sprMenu1.loadFont("GiessenFutura24");
-      }
-      else
-      {
-        sprMenu1.loadFont("JostMedium24");
-      }
+      sprMenu1.loadFont("JostMedium24");
       sprMenu1.drawString(getI18n("menu_audio_50"), xposition / 2, textPositionBottom);
       pushImageFromFS(getIcon("Sound050_48"), middleWidth - 24, yposition, tft);
     }
     else if (currentMenu == 34)
     {
       sprMenu1.drawString(getI18n("menu_audioprofiles"), xposition / 2, textPositionTop);
-      if (giessen_mode == true)
-      {
-        sprMenu1.loadFont("GiessenFutura24");
-      }
-      else
-      {
-        sprMenu1.loadFont("JostMedium24");
-      }
+      sprMenu1.loadFont("JostMedium24");
       sprMenu1.drawString(getI18n("menu_audio_75"), xposition / 2, textPositionBottom);
       pushImageFromFS(getIcon("Sound075_48"), middleWidth - 24, yposition, tft);
     }
     else if (currentMenu == 35)
     {
       sprMenu1.drawString(getI18n("menu_audioprofiles"), xposition / 2, textPositionTop);
-      if (giessen_mode == true)
-      {
-        sprMenu1.loadFont("GiessenFutura24");
-      }
-      else
-      {
-        sprMenu1.loadFont("JostMedium24");
-      }
+      sprMenu1.loadFont("JostMedium24");
       sprMenu1.drawString(getI18n("menu_audio_normal"), xposition / 2, textPositionBottom);
       pushImageFromFS(getIcon("Sound100_48"), middleWidth - 24, yposition, tft);
     }
     else if (currentMenu == 4)
     {
       sprMenu1.drawString(getI18n("menu_menu"), xposition / 2, textPositionTop);
-      if (giessen_mode == true)
-      {
-        sprMenu1.loadFont("GiessenFutura24");
-      }
-      else
-      {
-        sprMenu1.loadFont("JostMedium24");
-      }
+      sprMenu1.loadFont("JostMedium24");
       sprMenu1.drawString(getI18n("menu_settings"), xposition / 2, textPositionBottom);
       pushImageFromFS(getIcon("Setting_48"), middleWidth - 24, yposition, tft);
     }
     else if (currentMenu == 41)
     {
       sprMenu1.drawString(getI18n("menu_settings"), xposition / 2, textPositionTop);
-      if (giessen_mode == true)
-      {
-        sprMenu1.loadFont("GiessenFutura24");
-      }
-      else
-      {
-        sprMenu1.loadFont("JostMedium24");
-      }
+      sprMenu1.loadFont("JostMedium24");
       sprMenu1.drawString(getI18n("menu_brightness"), xposition / 2, textPositionBottom);
       pushImageFromFS(getIcon("Brightness_48"), middleWidth - 24, yposition, tft);
     }
     else if (currentMenu == 411)
     {
       sprMenu1.drawString(getI18n("menu_brightness"), xposition / 2, textPositionTop);
-      if (giessen_mode == true)
-      {
-        sprMenu1.loadFont("GiessenFutura24");
-      }
-      else
-      {
-        sprMenu1.loadFont("JostMedium24");
-      }
+      sprMenu1.loadFont("JostMedium24");
       sprMenu1.drawString(getI18n("menu_brightness_set"), xposition / 2, textPositionBottom);
       if (display_level <= 100 && display_level > 90)
       {
@@ -767,112 +662,56 @@ void drawMenu_h(TFT_eSPI &tft, TFT_eSprite &sprMenu1, TFT_eSprite &sprMenu2)
     else if (currentMenu == 42)
     {
       sprMenu1.drawString(getI18n("menu_settings"), xposition / 2, textPositionTop);
-      if (giessen_mode == true)
-      {
-        sprMenu1.loadFont("GiessenFutura24");
-      }
-      else
-      {
-        sprMenu1.loadFont("JostMedium24");
-      }
+      sprMenu1.loadFont("JostMedium24");
       sprMenu1.drawString(getI18n("menu_time"), xposition / 2, textPositionBottom);
       pushImageFromFS(getIcon("Clock_48"), middleWidth - 24, yposition, tft);
     }
     else if (currentMenu == 421)
     {
       sprMenu1.drawString(getI18n("menu_time"), xposition / 2, textPositionTop);
-      if (giessen_mode == true)
-      {
-        sprMenu1.loadFont("GiessenFutura24");
-      }
-      else
-      {
-        sprMenu1.loadFont("JostMedium24");
-      }
+      sprMenu1.loadFont("JostMedium24");
       sprMenu1.drawString(getI18n("menu_time_set"), xposition / 2, textPositionBottom);
       sprMenu2.createSprite(xposition, 140);
       sprMenu2.fillSprite(TFT_WHITE);
       sprMenu2.setTextDatum(MC_DATUM);
       sprMenu2.setColorDepth(16);
       sprMenu2.setTextColor(TFT_BLACK, TFT_WHITE);
-      if (giessen_mode == true)
-      {
-        sprMenu2.loadFont("GiessenFutura32");
-      }
-      else
-      {
-        sprMenu2.loadFont("JostMedium32");
-      }
+      sprMenu2.loadFont("JostMedium32");
       sprMenu2.drawString(getLeftPaddingString(String(getHour()), '0', 2) + ":" + getLeftPaddingString(String(getMinute()), '0', 2), xposition / 2, 20);
       showSubSprite = true;
     }
     else if (currentMenu == 43)
     {
       sprMenu1.drawString(getI18n("menu_settings"), xposition / 2, textPositionTop);
-      if (giessen_mode == true)
-      {
-        sprMenu1.loadFont("GiessenFutura24");
-      }
-      else
-      {
-        sprMenu1.loadFont("JostMedium24");
-      }
+      sprMenu1.loadFont("JostMedium24");
       sprMenu1.drawString(getI18n("menu_date"), xposition / 2, textPositionBottom);
       pushImageFromFS(getIcon("Calendar_48"), middleWidth - 24, yposition, tft);
     }
     else if (currentMenu == 431)
     {
       sprMenu1.drawString(getI18n("menu_date"), xposition / 2, textPositionTop);
-      if (giessen_mode == true)
-      {
-        sprMenu1.loadFont("GiessenFutura24");
-      }
-      else
-      {
-        sprMenu1.loadFont("JostMedium24");
-      }
+      sprMenu1.loadFont("JostMedium24");
       sprMenu1.drawString(getI18n("menu_date_year"), xposition / 2, textPositionBottom);
       pushImageFromFS(getIcon("Calendar_48"), middleWidth - 24, yposition, tft);
     }
     else if (currentMenu == 4311)
     {
       sprMenu1.drawString(getI18n("menu_date_year"), xposition / 2, textPositionTop);
-      if (giessen_mode == true)
-      {
-        sprMenu1.loadFont("GiessenFutura24");
-      }
-      else
-      {
-        sprMenu1.loadFont("JostMedium24");
-      }
+      sprMenu1.loadFont("JostMedium24");
       sprMenu1.drawString(getI18n("menu_date_year_set"), xposition / 2, textPositionBottom);
       sprMenu2.createSprite(xposition, 140);
       sprMenu2.fillSprite(TFT_WHITE);
       sprMenu2.setTextDatum(MC_DATUM);
       sprMenu2.setColorDepth(16);
       sprMenu2.setTextColor(TFT_BLACK, TFT_WHITE);
-      if (giessen_mode == true)
-      {
-        sprMenu2.loadFont("GiessenFutura32");
-      }
-      else
-      {
-        sprMenu2.loadFont("JostMedium32");
-      }
+      sprMenu2.loadFont("JostMedium32");
       sprMenu2.drawString(String(getYear()), xposition / 2, 20);
       showSubSprite = true;
     }
     else if (currentMenu == 432)
     {
       sprMenu1.drawString(getI18n("menu_date"), xposition / 2, textPositionTop);
-      if (giessen_mode == true)
-      {
-        sprMenu1.loadFont("GiessenFutura24");
-      }
-      else
-      {
-        sprMenu1.loadFont("JostMedium24");
-      }
+      sprMenu1.loadFont("JostMedium24");
       sprMenu1.drawString(getI18n("menu_date_month"), xposition / 2, textPositionBottom);
       if (getMonth() == 1)
       {
@@ -930,14 +769,7 @@ void drawMenu_h(TFT_eSPI &tft, TFT_eSprite &sprMenu1, TFT_eSprite &sprMenu2)
     else if (currentMenu == 4321)
     {
       sprMenu1.drawString(getI18n("menu_date_month"), xposition / 2, textPositionTop);
-      if (giessen_mode == true)
-      {
-        sprMenu1.loadFont("GiessenFutura24");
-      }
-      else
-      {
-        sprMenu1.loadFont("JostMedium24");
-      }
+      sprMenu1.loadFont("JostMedium24");
       sprMenu1.drawString(getI18n("menu_date_month_set"), xposition / 2, textPositionBottom);
       if (getMonth() == 1)
       {
@@ -995,14 +827,7 @@ void drawMenu_h(TFT_eSPI &tft, TFT_eSprite &sprMenu1, TFT_eSprite &sprMenu2)
     else if (currentMenu == 433)
     {
       sprMenu1.drawString(getI18n("menu_date"), xposition / 2, textPositionTop);
-      if (giessen_mode == true)
-      {
-        sprMenu1.loadFont("GiessenFutura24");
-      }
-      else
-      {
-        sprMenu1.loadFont("JostMedium24");
-      }
+      sprMenu1.loadFont("JostMedium24");
       sprMenu1.drawString(getI18n("menu_date_day"), xposition / 2, textPositionBottom);
       if (getDay() == 1)
       {
@@ -1136,14 +961,7 @@ void drawMenu_h(TFT_eSPI &tft, TFT_eSprite &sprMenu1, TFT_eSprite &sprMenu2)
     else if (currentMenu == 4331)
     {
       sprMenu1.drawString(getI18n("menu_date_day"), xposition / 2, textPositionTop);
-      if (giessen_mode == true)
-      {
-        sprMenu1.loadFont("GiessenFutura24");
-      }
-      else
-      {
-        sprMenu1.loadFont("JostMedium24");
-      }
+      sprMenu1.loadFont("JostMedium24");
       sprMenu1.drawString(getI18n("menu_date_day_set"), xposition / 2, textPositionBottom);
       if (getDay() == 1)
       {
@@ -1277,56 +1095,28 @@ void drawMenu_h(TFT_eSPI &tft, TFT_eSprite &sprMenu1, TFT_eSprite &sprMenu2)
     else if (currentMenu == 44)
     {
       sprMenu1.drawString(getI18n("menu_settings"), xposition / 2, textPositionTop);
-      if (giessen_mode == true)
-      {
-        sprMenu1.loadFont("GiessenFutura24");
-      }
-      else
-      {
-        sprMenu1.loadFont("JostMedium24");
-      }
+      sprMenu1.loadFont("JostMedium24");
       sprMenu1.drawString(getI18n("menu_buttonsound"), xposition / 2, textPositionBottom);
       pushImageFromFS(getIcon("Sound025_48"), middleWidth - 24, yposition, tft);
     }
     else if (currentMenu == 441)
     {
       sprMenu1.drawString(getI18n("menu_buttonsound"), xposition / 2, textPositionTop);
-      if (giessen_mode == true)
-      {
-        sprMenu1.loadFont("GiessenFutura24");
-      }
-      else
-      {
-        sprMenu1.loadFont("JostMedium24");
-      }
+      sprMenu1.loadFont("JostMedium24");
       sprMenu1.drawString(getI18n("menu_on"), xposition / 2, textPositionBottom);
       pushImageFromFS(getIcon("Sound025_48"), middleWidth - 24, yposition, tft);
     }
     else if (currentMenu == 442)
     {
       sprMenu1.drawString(getI18n("menu_buttonsound"), xposition / 2, textPositionTop);
-      if (giessen_mode == true)
-      {
-        sprMenu1.loadFont("GiessenFutura24");
-      }
-      else
-      {
-        sprMenu1.loadFont("JostMedium24");
-      }
+      sprMenu1.loadFont("JostMedium24");
       sprMenu1.drawString(getI18n("menu_off"), xposition / 2, textPositionBottom);
       pushImageFromFS(getIcon("Sound000_48"), middleWidth - 24, yposition, tft);
     }
     else if (currentMenu == 45)
     {
       sprMenu1.drawString(getI18n("menu_settings"), xposition / 2, textPositionTop);
-      if (giessen_mode == true)
-      {
-        sprMenu1.loadFont("GiessenFutura24");
-      }
-      else
-      {
-        sprMenu1.loadFont("JostMedium24");
-      }
+      sprMenu1.loadFont("JostMedium24");
       sprMenu1.drawString(getI18n("menu_language"), xposition / 2, textPositionBottom);
       if (i18n.equalsIgnoreCase("de"))
       {
@@ -1340,14 +1130,7 @@ void drawMenu_h(TFT_eSPI &tft, TFT_eSprite &sprMenu1, TFT_eSprite &sprMenu2)
     else if (currentMenu == 451)
     {
       sprMenu1.drawString(getI18n("menu_language"), xposition / 2, textPositionTop);
-      if (giessen_mode == true)
-      {
-        sprMenu1.loadFont("GiessenFutura24");
-      }
-      else
-      {
-        sprMenu1.loadFont("JostMedium24");
-      }
+      sprMenu1.loadFont("JostMedium24");
       sprMenu1.drawString(getI18n("language"), xposition / 2, textPositionBottom);
       if (i18n.equalsIgnoreCase("de"))
       {
@@ -1361,28 +1144,14 @@ void drawMenu_h(TFT_eSPI &tft, TFT_eSprite &sprMenu1, TFT_eSprite &sprMenu2)
     else if (currentMenu == 46)
     {
       sprMenu1.drawString(getI18n("menu_settings"), xposition / 2, textPositionTop);
-      if (giessen_mode == true)
-      {
-        sprMenu1.loadFont("GiessenFutura24");
-      }
-      else
-      {
-        sprMenu1.loadFont("JostMedium24");
-      }
+      sprMenu1.loadFont("JostMedium24");
       sprMenu1.drawString(getI18n("menu_orientation"), xposition / 2, textPositionBottom);
       pushImageFromFS(getIcon("OriChange_48"), middleWidth - 24, yposition, tft);
     }
     else if (currentMenu == 461)
     {
       sprMenu1.drawString(getI18n("menu_orientation"), xposition / 2, textPositionTop);
-      if (giessen_mode == true)
-      {
-        sprMenu1.loadFont("GiessenFutura24");
-      }
-      else
-      {
-        sprMenu1.loadFont("JostMedium24");
-      }
+      sprMenu1.loadFont("JostMedium24");
       if (display_landscape == true)
       {
         sprMenu1.drawString(getI18n("horizontal"), xposition / 2, textPositionBottom);
@@ -1397,14 +1166,7 @@ void drawMenu_h(TFT_eSPI &tft, TFT_eSprite &sprMenu1, TFT_eSprite &sprMenu2)
     else if (currentMenu == 47)
     {
       sprMenu1.drawString(getI18n("menu_settings"), xposition / 2, textPositionTop);
-      if (giessen_mode == true)
-      {
-        sprMenu1.loadFont("GiessenFutura24");
-      }
-      else
-      {
-        sprMenu1.loadFont("JostMedium24");
-      }
+      sprMenu1.loadFont("JostMedium24");
       sprMenu1.drawString(getI18n("menu_theme"), xposition / 2, textPositionBottom);
       if (display_theme.equalsIgnoreCase("color"))
       {
@@ -1422,14 +1184,7 @@ void drawMenu_h(TFT_eSPI &tft, TFT_eSprite &sprMenu1, TFT_eSprite &sprMenu2)
     else if (currentMenu == 471)
     {
       sprMenu1.drawString(getI18n("menu_theme"), xposition / 2, textPositionTop);
-      if (giessen_mode == true)
-      {
-        sprMenu1.loadFont("GiessenFutura24");
-      }
-      else
-      {
-        sprMenu1.loadFont("JostMedium24");
-      }
+      sprMenu1.loadFont("JostMedium24");
       if (display_theme.equalsIgnoreCase("color"))
       {
         sprMenu1.drawString(getI18n("color_color"), xposition / 2, textPositionBottom);
@@ -1449,98 +1204,49 @@ void drawMenu_h(TFT_eSPI &tft, TFT_eSprite &sprMenu1, TFT_eSprite &sprMenu2)
     else if (currentMenu == 5)
     {
       sprMenu1.drawString(getI18n("menu_menu"), xposition / 2, textPositionTop);
-      if (giessen_mode == true)
-      {
-        sprMenu1.loadFont("GiessenFutura24");
-      }
-      else
-      {
-        sprMenu1.loadFont("JostMedium24");
-      }
+      sprMenu1.loadFont("JostMedium24");
       sprMenu1.drawString(getI18n("menu_alarmclock"), xposition / 2, textPositionBottom);
       pushImageFromFS(getIcon("AlarmClock_48"), middleWidth - 24, yposition, tft);
     }
     else if (currentMenu == 51)
     {
       sprMenu1.drawString(getI18n("menu_alarmclock"), xposition / 2, textPositionTop);
-      if (giessen_mode == true)
-      {
-        sprMenu1.loadFont("GiessenFutura24");
-      }
-      else
-      {
-        sprMenu1.loadFont("JostMedium24");
-      }
+      sprMenu1.loadFont("JostMedium24");
       sprMenu1.drawString(getI18n("menu_alarmclock_set"), xposition / 2, textPositionBottom);
       sprMenu2.createSprite(xposition, 140);
       sprMenu2.fillSprite(TFT_WHITE);
       sprMenu2.setTextDatum(MC_DATUM);
       sprMenu2.setColorDepth(16);
       sprMenu2.setTextColor(TFT_BLACK, TFT_WHITE);
-      if (giessen_mode == true)
-      {
-        sprMenu2.loadFont("GiessenFutura32");
-      }
-      else
-      {
-        sprMenu2.loadFont("JostMedium32");
-      }
+      sprMenu2.loadFont("JostMedium32");
       sprMenu2.drawString(getLeftPaddingString(String(wake_hour_tmp), '0', 2) + ":" + getLeftPaddingString(String(wake_minute_tmp), '0', 2), xposition / 2, 20);
       showSubSprite = true;
     }
     else if (currentMenu == 6)
     {
       sprMenu1.drawString(getI18n("menu_menu"), xposition / 2, textPositionTop);
-      if (giessen_mode == true)
-      {
-        sprMenu1.loadFont("GiessenFutura24");
-      }
-      else
-      {
-        sprMenu1.loadFont("JostMedium24");
-      }
+      sprMenu1.loadFont("JostMedium24");
       sprMenu1.drawString(getI18n("menu_service"), xposition / 2, textPositionBottom);
       pushImageFromFS(getIcon("Info_48"), middleWidth - 24, yposition, tft);
     }
     else if (currentMenu == 61)
     {
       sprMenu1.drawString(getI18n("menu_service"), xposition / 2, textPositionTop);
-      if (giessen_mode == true)
-      {
-        sprMenu1.loadFont("GiessenFutura24");
-      }
-      else
-      {
-        sprMenu1.loadFont("JostMedium24");
-      }
+      sprMenu1.loadFont("JostMedium24");
       sprMenu1.drawString(getI18n("menu_service_hardware"), xposition / 2, textPositionBottom);
       pushImageFromFS(getIcon("Info_48"), middleWidth - 24, yposition, tft);
     }
     else if (currentMenu == 611)
     {
       sprMenu1.drawString(getI18n("menu_service_hardware"), xposition / 2, textPositionTop);
-      if (giessen_mode == true)
-      {
-        sprMenu1.loadFont("GiessenFutura24");
-      }
-      else
-      {
-        sprMenu1.loadFont("JostMedium24");
-      }
+      sprMenu1.loadFont("JostMedium24");
       sprMenu1.drawString(getI18n("menu_service_info"), xposition / 2, textPositionBottom);
       sprMenu2.createSprite(xposition, 140);
       sprMenu2.fillSprite(TFT_WHITE);
       sprMenu2.setTextDatum(MC_DATUM);
       sprMenu2.setColorDepth(16);
       sprMenu2.setTextColor(TFT_BLACK, TFT_WHITE);
-      if (giessen_mode == true)
-      {
-        sprMenu2.loadFont("GiessenFutura12");
-      }
-      else
-      {
-        sprMenu2.loadFont("JostMedium12");
-      }
+      sprMenu2.loadFont("JostMedium12");
       sprMenu2.drawString(getHardwareInfo(1) + " / " + getHardwareInfo(2), xposition / 2, 10);
       sprMenu2.drawString(getHardwareInfo(3) + " / " + getHardwareInfo(4), xposition / 2, 23);
       sprMenu2.drawString(getHardwareInfo(5), xposition / 2, 36);
@@ -1552,42 +1258,21 @@ void drawMenu_h(TFT_eSPI &tft, TFT_eSprite &sprMenu1, TFT_eSprite &sprMenu2)
     else if (currentMenu == 62)
     {
       sprMenu1.drawString(getI18n("menu_service"), xposition / 2, textPositionTop);
-      if (giessen_mode == true)
-      {
-        sprMenu1.loadFont("GiessenFutura24");
-      }
-      else
-      {
-        sprMenu1.loadFont("JostMedium24");
-      }
+      sprMenu1.loadFont("JostMedium24");
       sprMenu1.drawString(getI18n("menu_service_software"), xposition / 2, textPositionBottom);
       pushImageFromFS(getIcon("Info_48"), middleWidth - 24, yposition, tft);
     }
     else if (currentMenu == 621)
     {
       sprMenu1.drawString(getI18n("menu_service_software"), xposition / 2, textPositionTop);
-      if (giessen_mode == true)
-      {
-        sprMenu1.loadFont("GiessenFutura24");
-      }
-      else
-      {
-        sprMenu1.loadFont("JostMedium24");
-      }
+      sprMenu1.loadFont("JostMedium24");
       sprMenu1.drawString(getI18n("menu_service_info"), xposition / 2, textPositionBottom);
       sprMenu2.createSprite(xposition, 140);
       sprMenu2.fillSprite(TFT_WHITE);
       sprMenu2.setTextDatum(MC_DATUM);
       sprMenu2.setColorDepth(16);
       sprMenu2.setTextColor(TFT_BLACK, TFT_WHITE);
-      if (giessen_mode == true)
-      {
-        sprMenu2.loadFont("GiessenFutura12");
-      }
-      else
-      {
-        sprMenu2.loadFont("JostMedium12");
-      }
+      sprMenu2.loadFont("JostMedium12");
       sprMenu2.drawString(getSoftwareInfo(1), xposition / 2, 10);
       sprMenu2.drawString(getSoftwareInfo(2), xposition / 2, 23);
       sprMenu2.drawString(getSoftwareInfo(3), xposition / 2, 36);
@@ -1598,42 +1283,21 @@ void drawMenu_h(TFT_eSPI &tft, TFT_eSprite &sprMenu1, TFT_eSprite &sprMenu2)
     else if (currentMenu == 63)
     {
       sprMenu1.drawString(getI18n("menu_service"), xposition / 2, textPositionTop);
-      if (giessen_mode == true)
-      {
-        sprMenu1.loadFont("GiessenFutura24");
-      }
-      else
-      {
-        sprMenu1.loadFont("JostMedium24");
-      }
+      sprMenu1.loadFont("JostMedium24");
       sprMenu1.drawString(getI18n("menu_service_subscriber"), xposition / 2, textPositionBottom);
       pushImageFromFS(getIcon("Info_48"), middleWidth - 24, yposition, tft);
     }
     else if (currentMenu == 631)
     {
       sprMenu1.drawString(getI18n("menu_service_subscriber"), xposition / 2, textPositionTop);
-      if (giessen_mode == true)
-      {
-        sprMenu1.loadFont("GiessenFutura24");
-      }
-      else
-      {
-        sprMenu1.loadFont("JostMedium24");
-      }
+      sprMenu1.loadFont("JostMedium24");
       sprMenu1.drawString(getI18n("menu_service_info"), xposition / 2, textPositionBottom);
       sprMenu2.createSprite(xposition, 140);
       sprMenu2.fillSprite(TFT_WHITE);
       sprMenu2.setTextDatum(MC_DATUM);
       sprMenu2.setColorDepth(16);
       sprMenu2.setTextColor(TFT_BLACK, TFT_WHITE);
-      if (giessen_mode == true)
-      {
-        sprMenu2.loadFont("GiessenFutura12");
-      }
-      else
-      {
-        sprMenu2.loadFont("JostMedium12");
-      }
+      sprMenu2.loadFont("JostMedium12");
       sprMenu2.drawString(getI18n("menu_service_info_issi") + ": " + String(chip_id), xposition / 2, 10);
       showSubSprite = true;
     }

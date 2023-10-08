@@ -69,14 +69,7 @@ void drawTitlebar_h(TFT_eSPI &tft, TFT_eSprite &sprTitlebar1, TFT_eSprite &sprTi
   unsigned int timePosition = alarmPosition - 48;
   sprTitlebar1.createSprite(45, 16);
   sprTitlebar1.fillSprite(TFT_WHITE);
-  if (giessen_mode == true)
-  {
-    sprTitlebar1.loadFont("GiessenFutura16");
-  }
-  else
-  {
     sprTitlebar1.loadFont("JostMedium16");
-  }
   sprTitlebar1.setColorDepth(16);
   sprTitlebar1.setTextColor(TFT_BLACK, TFT_WHITE);
   sprTitlebar1.setCursor(0, 0);
@@ -86,14 +79,7 @@ void drawTitlebar_h(TFT_eSPI &tft, TFT_eSprite &sprTitlebar1, TFT_eSprite &sprTi
   pushImageFromFS(getIcon("Alarm_16"), alarmPosition, 1, tft);
   sprTitlebar2.createSprite(12, 16);
   sprTitlebar2.fillSprite(TFT_WHITE);
-  if (giessen_mode == true)
-  {
-    sprTitlebar2.loadFont("GiessenFutura16");
-  }
-  else
-  {
     sprTitlebar2.loadFont("JostMedium16");
-  }
   sprTitlebar2.setColorDepth(16);
   sprTitlebar2.setTextColor(TFT_BLACK, TFT_WHITE);
   sprTitlebar2.setCursor(0, 0);
@@ -103,14 +89,7 @@ void drawTitlebar_h(TFT_eSPI &tft, TFT_eSprite &sprTitlebar1, TFT_eSprite &sprTi
   pushImageFromFS(getIcon("Text_16"), messagePosition, 1, tft);
   sprTitlebar3.createSprite(12, 16);
   sprTitlebar3.fillSprite(TFT_WHITE);
-  if (giessen_mode == true)
-  {
-    sprTitlebar3.loadFont("GiessenFutura16");
-  }
-  else
-  {
     sprTitlebar3.loadFont("JostMedium16");
-  }
   sprTitlebar3.setColorDepth(16);
   sprTitlebar3.setTextColor(TFT_BLACK, TFT_WHITE);
   sprTitlebar3.setCursor(0, 0);

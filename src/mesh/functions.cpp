@@ -332,8 +332,6 @@ else if (currentComment.equalsIgnoreCase("saveTime"))
     display_theme = helper2;              // "color"
     display_level = doc["display_level"]; // 100
     debug_mode = doc["debug_mode"];       // false
-    giessen_mode = doc["giessen_mode"];   // true
-    closed_mode = doc["closed_mode"];     // false
     cityId = doc["cityId"];               // 91
     String helper3 = doc["mesh_prefix"];
     mesh_prefix = helper3; // "FMEMesh"

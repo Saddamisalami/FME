@@ -476,8 +476,6 @@ void writeConfig()
   settingsDoc["display_theme"] = display_theme;         // "color"
   settingsDoc["display_level"] = display_level;         // 100
   settingsDoc["debug_mode"] = debug_mode;               // false
-  settingsDoc["giessen_mode"] = giessen_mode;           // true
-  settingsDoc["closed_mode"] = closed_mode;             // false
   settingsDoc["cityId"] = cityId;                       // 91
   settingsDoc["mesh_prefix"] = mesh_prefix;             // "FMEMesh"
   settingsDoc["mesh_password"] = mesh_password;         // "somethingSneaky"
@@ -533,8 +531,6 @@ void readConfig()
   display_theme = helper2;                      // "color"
   display_level = settingsDoc["display_level"]; // 100
   debug_mode = settingsDoc["debug_mode"];       // false
-  giessen_mode = settingsDoc["giessen_mode"];   // true
-  closed_mode = settingsDoc["closed_mode"];     // false
   cityId = settingsDoc["cityId"];               // 91
   String helper3 = settingsDoc["mesh_prefix"];
   mesh_prefix = helper3; // "FMEMesh"

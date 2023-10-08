@@ -21,14 +21,7 @@ void scrollAlarmText_h(TFT_eSPI &tft, TFT_eSprite &sprScroll1, String text)
   scrollTextLength = getSmoothTextSize(text, 32);
   sprScroll1.createSprite(scrollTextLength, 36);
   sprScroll1.fillSprite(TFT_WHITE);
-  if (giessen_mode == true)
-  {
-    sprScroll1.loadFont("GiessenFutura32");
-  }
-  else
-  {
-    sprScroll1.loadFont("JostMedium32");
-  }
+  sprScroll1.loadFont("JostMedium32");
   sprScroll1.setTextDatum(ML_DATUM);
   sprScroll1.setColorDepth(16);
   sprScroll1.setTextColor(TFT_BLACK, TFT_WHITE);
@@ -56,14 +49,7 @@ void drawAlarmPageType_h(TFT_eSPI &tft, TFT_eSprite &sprAlarm1, int alarm)
   sprAlarm1.setColorDepth(16);
   sprAlarm1.setTextColor(TFT_BLACK, TFT_WHITE);
   sprAlarm1.setTextWrap(false);
-  if (giessen_mode == true)
-  {
-    sprAlarm1.loadFont("GiessenFutura24");
-  }
-  else
-  {
-    sprAlarm1.loadFont("JostMedium24");
-  }
+  sprAlarm1.loadFont("JostMedium24");
   sprAlarm1.drawString(getAlarmTypeText(getAlarmType(alarm)), displayWidth / 2, 10);
   String txtAlarmAdress = getAlarmAdress(alarm);
   sprAlarm1.pushSprite(0, middleHeight);
@@ -512,25 +498,11 @@ void drawAlarmPageDetail_h(TFT_eSPI &tft, TFT_eSprite &sprAlarm1, boolean showCo
   sprAlarm1.setColorDepth(16);
   sprAlarm1.setTextColor(TFT_BLACK, TFT_WHITE);
   sprAlarm1.setTextWrap(false);
-  if (giessen_mode == true)
-  {
-    sprAlarm1.loadFont("GiessenFutura24");
-  }
-  else
-  {
-    sprAlarm1.loadFont("JostMedium24");
-  }
+  sprAlarm1.loadFont("JostMedium24");
   String alarmText = getAlarmTypeText(getAlarmType(alarm));
   sprAlarm1.drawString(alarmText, displayWidth - (getSmoothTextSize(alarmText, 24) + 25), 2);
   String alarmAdress = getAlarmAdress(alarm);
-  if (giessen_mode == true)
-  {
-    sprAlarm1.loadFont("GiessenFutura16");
-  }
-  else
-  {
-    sprAlarm1.loadFont("JostMedium16");
-  }
+  sprAlarm1.loadFont("JostMedium16");
   sprAlarm1.setTextWrap(true);
   String textAdress = getI18n("alarm_address") + ":";
   if (showComment == true && !getAlarmComment(alarm).isEmpty())
@@ -543,14 +515,7 @@ void drawAlarmPageDetail_h(TFT_eSPI &tft, TFT_eSprite &sprAlarm1, boolean showCo
     alarmAdress.replace(", ", "\n");
   }
   sprAlarm1.drawString(textAdress, 1, 28);
-  if (giessen_mode == true)
-  {
-    sprAlarm1.loadFont("GiessenFutura24");
-  }
-  else
-  {
-    sprAlarm1.loadFont("JostMedium24");
-  }
+  sprAlarm1.loadFont("JostMedium24");
   sprAlarm1.drawString(alarmAdress, 1, 44);
   sprAlarm1.pushSprite(0, 19);
   sprAlarm1.unloadFont();

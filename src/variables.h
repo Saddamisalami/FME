@@ -72,9 +72,6 @@ extern String display_theme;
 extern unsigned int display_level;
 // Debug
 extern boolean debug_mode;
-// Special Modes
-extern boolean giessen_mode;
-extern boolean closed_mode;
 // Standort
 extern unsigned int cityId;
 
@@ -87,7 +84,7 @@ extern unsigned long time_page_3;
 extern boolean running_Alarm;
 
 /*
- * Wird gesetzt wenn Config geändert wird. Lässt das neu speichern der Config aus
+ * Wird gesetzt wenn Config geändert wird. Löst das neu speichern der Config aus
  */
 extern boolean prefChanged;
 

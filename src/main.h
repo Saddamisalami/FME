@@ -2,9 +2,6 @@
 #include <ArduinoJson.h>
 #include <FastLED.h>
 #include <painlessMesh.h>
-#if (INCLUDE_LORA)
-#include <RadioLib.h>
-#endif
 #include <TFT_eFEX.h>
 #include <TFT_eSPI.h>
 
@@ -28,10 +25,6 @@
 #include "time\functions.h"
 
 #include "variables.h"
-
-#if (INCLUDE_LORA)
-void setLoraInterruptFlag(void);
-#endif
 
 void colorLED(int);
 

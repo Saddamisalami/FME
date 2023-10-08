@@ -1,16 +1,11 @@
 #define INCLUDE_BASESTATION 1
 #define INCLUDE_MUSIC 1
-#define INCLUDE_LORA 0
-
 #define DEMO_ALARM 0
 
 #include <Arduino.h>
 #include <ArduinoJson.h>
 #include <FastLED.h>
 #include <painlessMesh.h>
-#if (INCLUDE_LORA)
-#include <RadioLib.h>
-#endif
 #include <TFT_eFEX.h>
 #include <TFT_eSPI.h>
 
@@ -51,7 +46,7 @@ unsigned int chip_id = 0;
 
 String i18n = "de";
 
-boolean menu_sound_active = true;
+boolean menu_sound_active = false;
 
 boolean display_time = true;
 boolean display_landscape = true;
@@ -59,9 +54,6 @@ String display_theme = "color";
 unsigned int display_level = 100;
 
 boolean debug_mode = false;
-
-boolean giessen_mode = false;
-boolean closed_mode = false;
 
 unsigned int cityId = 91;
 
@@ -77,13 +69,6 @@ boolean relay_1_state = false;
 unsigned const int led_2_numbers = 7;
 unsigned const int led_2_pin = 18;
 CRGB leds2[led_2_numbers];
-#endif
-#if (INCLUDE_LORA)
-unsigned int lora_1_pin_nss = 10;
-unsigned int lora_1_pin_dio0 = 2;
-unsigned int lora_1_pin_reset = 9;
-unsigned int lora_1_pin_dio1 = 3;
-boolean lora_1_active = false;
 #endif
 unsigned int sound_1_pin = 17;
 boolean led_1_power = true;
@@ -204,35 +189,6 @@ unsigned const int pauseDisplayDarker = 1000;
 /*
  * LED Funktionen/Variablen
  */
-#if (INCLUDE_LORA)
-/*
- * LoRa Funktionen/Variablen
- *
- * SX1278 has the following connections_
- * NSS pin:   10
- * DIO0 pin:  2
- * RESET pin: 9
- * DIO1 pin:  3
- *
- */
-SX1278 radio = new Module(10, 2, 9, 3);
-
-volatile bool receivedLoRaFlag = false;
-volatile bool enableLoRaInterrupt = true;
-
-#if defined(ESP8266) || defined(ESP32)
-ICACHE_RAM_ATTR
-#endif
-void setLoraInterruptFlag(void)
-{
-  if (!enableLoRaInterrupt)
-  {
-    return;
-  }
-  receivedLoRaFlag = true;
-}
-#endif
-
 void colorLED(int alarmTypeForLED)
 {
   if (alarmTypeForLED == 1)
@@ -371,20 +327,6 @@ void setup()
   pinMode(relay_1_pin, OUTPUT);
 #endif
 
-#if (INCLUDE_LORA)
-  if (lora_1_active == true)
-  {
-    int state = radio.begin();
-    if (state == RADIOLIB_ERR_NONE)
-    {
-      radio.setDio0Action(setLoraInterruptFlag);
-    }
-    state = radio.startReceive();
-    if (state == RADIOLIB_ERR_NONE)
-    {
-    }
-  }
-#endif
   setLandscape(tft, display_landscape);
 
   drawTitlebar(tft, sprTitlebar1, sprTitlebar2, sprTitlebar3);
@@ -394,7 +336,7 @@ void setup()
 #endif
 #if (DEMO_ALARM)
   {
-    alarmSet(0, 100, true, 16, 101, "Helgenstockstrasse 19, 35394 Gießen Rödgen", "Das ist ein Demo Alarm");
+    alarmSet(0, 100, true, 16, 101, "Lange Ortsstraße 32, 35394 Gießen Rödgen", "Das ist ein Demo Alarm");
     running_Alarm = true;
   }
 #else
@@ -409,62 +351,6 @@ void loop()
 {
   // Aktualisieren des Mesh Netzwerkes & Empfangen von Nachrichten
   mesh.update();
-#if (INCLUDE_LORA)
-  if (receivedLoRaFlag)
-  {
-    enableLoRaInterrupt = false;
-    receivedLoRaFlag = false;
-
-    String str;
-    int state = radio.readData(str);
-
-    // you can also read received data as byte array
-    /*
-      byte byteArr[8];
-      int state = radio.readData(byteArr, 8);
-    */
-
-    if (state == RADIOLIB_ERR_NONE)
-    {
-      // packet was successfully received
-      Serial.println(F("[SX1278] Received packet!"));
-
-      // print data of the packet
-      Serial.print(F("[SX1278] Data:\t\t"));
-      Serial.println(str);
-
-      // print RSSI (Received Signal Strength Indicator)
-      Serial.print(F("[SX1278] RSSI:\t\t"));
-      Serial.print(radio.getRSSI());
-      Serial.println(F(" dBm"));
-
-      // print SNR (Signal-to-Noise Ratio)
-      Serial.print(F("[SX1278] SNR:\t\t"));
-      Serial.print(radio.getSNR());
-      Serial.println(F(" dB"));
-
-      // print frequency error
-      Serial.print(F("[SX1278] Frequency error:\t"));
-      Serial.print(radio.getFrequencyError());
-      Serial.println(F(" Hz"));
-    }
-    else if (state == RADIOLIB_ERR_CRC_MISMATCH)
-    {
-      // packet was received, but is malformed
-      Serial.println(F("[SX1278] CRC error!"));
-    }
-    else
-    {
-      // some other error occurred
-      Serial.print(F("[SX1278] Failed, code "));
-      Serial.println(state);
-    }
-
-    radio.startReceive();
-
-    enableLoRaInterrupt = true;
-  }
-#endif
 
   // Joystick abfragen
   checkJoystick();
@@ -627,7 +513,7 @@ void loop()
     int frequency = 0;
     int frequencyLength = 0;
     int alarmTypeForLED = getAlarmCategory(getAlarmType(currentAlarm));
-    ;
+
     if (getAlarmDigital(currentAlarm) == true)
     {
       frequency = getDigitalFrequency(getAlarmSound(currentAlarm), frequencyCounter);
