@@ -20,6 +20,7 @@
 #include "messages\functions.h"
 #include "tasks\battery.h"
 #include "tasks\mesh.h"
+#include "tasks\power.h"
 #include "tasks\time.h"
 #include "tasks\wlan.h"
 #include "time\functions.h"

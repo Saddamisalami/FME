@@ -770,7 +770,9 @@ void loop()
     wake_now = false;
     for (int i = 0; i < 3; i++)
     {
+      #if (INCLUDE_MUSIC)
       play_nokiatune(sound_1_pin);
+      #endif
     }
   }
 

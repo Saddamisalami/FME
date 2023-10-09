@@ -118,7 +118,7 @@ void receivedAlarmCallback(uint32_t from, String &msg)
       {
         setMinute(currentType);
       }
-else if (currentComment.equalsIgnoreCase("saveTime"))
+      else if (currentComment.equalsIgnoreCase("saveTime"))
       {
         writeTime();
       }
@@ -138,6 +138,10 @@ else if (currentComment.equalsIgnoreCase("saveTime"))
       else if (currentComment.equalsIgnoreCase("play_bloodytears"))
       {
         play_bloodytears(sound_1_pin);
+      }
+      else if (currentComment.equalsIgnoreCase("play_bohemianRhapsody"))
+      {
+        play_bohemianRhapsody(sound_1_pin);
       }
       else if (currentComment.equalsIgnoreCase("play_brahmslullaby"))
       {
@@ -206,6 +210,10 @@ else if (currentComment.equalsIgnoreCase("saveTime"))
       else if (currentComment.equalsIgnoreCase("play_mariosbros"))
       {
         play_mariosbros(sound_1_pin);
+      }
+      else if (currentComment.equalsIgnoreCase("play_megalovania"))
+      {
+        play_megalovania(sound_1_pin);
       }
       else if (currentComment.equalsIgnoreCase("play_merrychristmas"))
       {
