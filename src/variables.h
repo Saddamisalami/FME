@@ -15,13 +15,6 @@ extern unsigned int relay_1_pin;
 extern boolean relay_1_mode;
 extern boolean relay_1_state;
 #endif
-#if (INCLUDE_LORA)
-extern unsigned int lora_1_pin_nss;
-extern unsigned int lora_1_pin_dio0;
-extern unsigned int lora_1_pin_reset;
-extern unsigned int lora_1_pin_dio1;
-extern boolean lora_1_active;
-#endif
 extern unsigned int sound_1_pin;
 // extern unsigned int sound_2_pin;
 extern boolean led_1_power;
@@ -44,6 +37,7 @@ extern unsigned int mesh_port;
 extern unsigned int mesh_channel;
 extern boolean mesh_containsRoot;
 extern boolean mesh_isRoot;
+extern IPAddress mesh_ip;
 
 /*
  *Globale Variablen für Zeit

@@ -80,6 +80,7 @@ unsigned int mesh_port = 5555;
 unsigned int mesh_channel = 6;
 boolean mesh_containsRoot = true;
 boolean mesh_isRoot = true;
+IPAddress mesh_ip(0,0,0,0);
 // Sound
 unsigned int channel_1 = 0;
 unsigned int volume_1 = 100;
