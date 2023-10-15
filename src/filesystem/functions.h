@@ -1,10 +1,8 @@
 #include <Arduino.h>
 #include <ArduinoJson.h>
-#include <FFat.h>
 #include <FS.h>
 #include <LittleFS.h>
 #include <JPEGDecoder.h>
-#include <SPIFFS.h>
 #include <TFT_eSPI.h>
 
 #include "math\functions.h"
@@ -54,5 +52,6 @@ void readConfig();
 boolean pushJPEGFromFS(const char *, int16_t, int16_t, TFT_eSPI &);
 
 boolean pushBMPFromFS(const char *, int16_t, int16_t, TFT_eSPI &);
+boolean pushPNGFromFS(const char *, int16_t, int16_t, TFT_eSPI &);
 
 void pushImageFromFS(const char *, int16_t, int16_t, TFT_eSPI &);

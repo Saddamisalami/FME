@@ -75,7 +75,7 @@ void play_shapeofyou(int buzzer)
 #if defined(ESP32)
         ledcWriteTone(soundChannel, melody_shapeofyou[thisNote]);
 #else
-        tone(buzzer, melody_shapeofyou[thisNote], noteDuration *.);
+        tone(buzzer, melody_shapeofyou[thisNote], duration * 0.9);
 #endif
 
         // Wait for the specief duration before playing the next note.

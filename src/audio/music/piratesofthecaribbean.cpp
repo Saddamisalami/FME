@@ -126,7 +126,7 @@ void play_piratesofthecaribbean(int buzzer)
 #if defined(ESP32)
         ledcWriteTone(soundChannel, melody_piratesofthecaribbean[thisNote]);
 #else
-        tone(buzzer, melody_piratesofthecaribbean[thisNote], noteDuration *.);
+        tone(buzzer, melody_piratesofthecaribbean[thisNote], duration * 0.9);
 #endif
 
         // Wait for the specief duration before playing the next note.

@@ -73,7 +73,7 @@ void play_babyelephantwalk(int buzzer)
 #if defined(ESP32)
     ledcWriteTone(soundChannel, melody_babyelephantwalk[thisNote]);
 #else
-    tone(buzzer, melody_badinerie[thisNote], noteDuration * 0.9);
+    tone(buzzer, melody_babyelephantwalk[thisNote], noteDuration * 0.9);
 #endif
     // Wait for the specief duration before playing the next note.
     delay(noteDuration);

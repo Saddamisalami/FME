@@ -78,7 +78,7 @@ void play_homealone(int buzzer)
 #if defined(ESP32)
         ledcWriteTone(soundChannel, melody_homealone[thisNote]);
 #else
-        tone(buzzer, melody_homealone[thisNote], noteDuration *.);
+        tone(buzzer, melody_homealone[thisNote], duration * 0.9);
 #endif
 
         // Wait for the specief duration before playing the next note.

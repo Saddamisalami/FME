@@ -16,17 +16,29 @@ String getHardwareInfo(int subject)
   if (subject == 1)
   {
     info += "Chip: ";
+#if defined(ESP32)
     info += ESP.getChipModel();
+#elif defined(ESP8266)
+    info += "";
+#endif
   }
   else if (subject == 2)
   {
     info += "Revision: ";
+#if defined(ESP32)
     info += ESP.getChipRevision();
+#elif defined(ESP8266)
+    info += "1";
+#endif
   }
   else if (subject == 3)
   {
     info += getI18n("menu_service_info_cores") + ": ";
+#if defined(ESP32)
     info += ESP.getChipCores();
+#elif defined(ESP8266)
+    info += "1";
+#endif
   }
   else if (subject == 4)
   {
@@ -36,7 +48,16 @@ String getHardwareInfo(int subject)
   }
   else if (subject == 5)
   {
-    int heapsize = ESP.getHeapSize();
+    int heapsize = 0;
+#if defined(ESP32)
+    heapsize = ESP.getHeapSize();
+#elif defined(ESP8266)
+    static uint32_t myfree;
+    static uint16_t mymax;
+    static uint8_t myfrag;
+    ESP.getHeapStats(&myfree, &mymax, &myfrag);
+    heapsize = mymax;
+#endif
     info += "Heap " + getI18n("menu_service_info_size") + ": ";
     info += calcBytes(heapsize - ESP.getFreeHeap(), 1);
     info += divider;
@@ -45,9 +66,21 @@ String getHardwareInfo(int subject)
   }
   else if (subject == 6)
   {
-    int psramsize = ESP.getPsramSize();
+    int psramsize = 0;
+    int psramsizefree = 0;
+#if defined(ESP32)
+    psramsize = ESP.getPsramSize();
+#elif defined(ESP8266)
+    psramsize = 0;
+#endif
+#if defined(ESP32)
+    psramsizefree = ESP.getFreePsram();
+#elif defined(ESP8266)
+    psramsizefree = 0;
+#endif
+
     info += "Psram " + getI18n("menu_service_info_size") + ": ";
-    info += calcBytes(psramsize - ESP.getFreePsram(), 1);
+    info += calcBytes(psramsize - psramsizefree, 1);
     info += divider;
     info += calcBytes(psramsize, 1);
     info += unitKB;

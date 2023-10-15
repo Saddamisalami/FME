@@ -1,12 +1,7 @@
 #include <Arduino.h>
 
-void cleanAlarm();
+#include "alarm\address\functions.h"
+#include "alarm\keywords\functions.h"
 
-String getAlarmPLZText(unsigned int);
-String getAlarmCityText(unsigned int);
-String getAlarmStreetText(unsigned int);
-String getAlarmSubText(unsigned int);
-String getAlarmTypeText(unsigned int);
-String getAlarmCategoryText(unsigned int);
-String getCombinedAdress(int, int, int, int, String);
+void cleanAlarm();
 int getAlarmCategory(unsigned int);

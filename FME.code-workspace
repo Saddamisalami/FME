@@ -1,7 +1,11 @@
 {
 	"folders": [
 		{
-			"path": "H:/Dev/Projects/FME_Project/FME"
+			"path": "."
+		},
+		{
+			"name": "PNGLittleFSTest",
+			"path": "C:/Users/jonas/Documents/PlatformIO/Projects/PNGLittleFSTest"
 		}
 	],
 	"settings": {
@@ -15,7 +19,9 @@
 			"tuple": "cpp",
 			"type_traits": "cpp",
 			"utility": "cpp",
-			"cmath": "cpp"
+			"cmath": "cpp",
+			"*.tcc": "cpp",
+			"list": "cpp"
 		},
 		"cmake.autoSelectActiveFolder": false,
 		"cSpell.words": [

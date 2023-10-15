@@ -1,10 +1,8 @@
 #include <Arduino.h>
 #include <ArduinoJson.h>
-#include <FFat.h>
 #include <FS.h>
 #include <LittleFS.h>
 #include <JPEGDecoder.h>
-#include <SPIFFS.h>
 #include <TFT_eSPI.h>
 
 #include "math\functions.h"
@@ -14,72 +12,39 @@
 #include "variables.h"
 
 #define FS_NO_GLOBALS
-#define FORMAT_FFAT false
-#define FORMAT_SPIFFS_IF_FAILED false
+#define FileSys LittleFS
 
 String isType()
 {
-  if (spiffs_active == true)
-  {
-    return "SPIFFS";
-  }
-  else if (littlefs_active == true)
-  {
-    return "SPIFFS";
-  }
-  else
-  {
-    return "FAT";
-  }
+  return "LITTLEFS";
 }
 
 int totalBytes()
 {
-  if (spiffs_active == true)
-  {
-    return SPIFFS.totalBytes();
-  }
-  else if (littlefs_active == true)
-  {
-    return LittleFS.totalBytes();
-  }
-  else
-  {
-    FFat.totalBytes();
-  }
+#if defined(ESP32)
+  return LittleFS.totalBytes();
+#elif defined(ESP8266)
+  FSInfo fs_info;
+  LittleFS.info(fs_info);
+  return fs_info.totalBytes;
+#endif
 }
 
 int usedBytes()
 {
-  if (spiffs_active == true)
-  {
-    return SPIFFS.usedBytes();
-  }
-  else
-  {
-    FFat.usedBytes();
-  }
+#if defined(ESP32)
+  return LittleFS.usedBytes();
+#elif defined(ESP8266)
+  FSInfo fs_info;
+  LittleFS.info(fs_info);
+  return fs_info.usedBytes;
+#endif
 }
 
 void initFileSystem()
 {
-  if (spiffs_active == true)
+  if (!LittleFS.begin())
   {
-    if (!SPIFFS.begin())
-    {
-    }
-  }
-  else if (littlefs_active == true)
-  {
-    if (!LittleFS.begin())
-    {
-    }
-  }
-  else
-  {
-    if (!FFat.begin())
-    {
-    }
   }
 }
 
@@ -104,18 +69,11 @@ uint32_t read32(fs::File &f)
 void appendFile(const char *path, const char *message)
 {
   fs::File file;
-  if (spiffs_active == true)
-  {
-    file = SPIFFS.open(path, FILE_APPEND);
-  }
-  else if (littlefs_active == true)
-  {
-    file = LittleFS.open(path, FILE_APPEND);
-  }
-  else
-  {
-    file = FFat.open(path, FILE_APPEND);
-  }
+#if defined(ESP32)
+  file = LittleFS.open(path, FILE_APPEND);
+#elif defined(ESP8266)
+  file = LittleFS.open(path, "a");
+#endif
   if (!file)
   {
     return;
@@ -131,35 +89,21 @@ void appendFile(const char *path, const char *message)
 
 void deleteFile(fs::FS &fs, const char *path)
 {
-  if (spiffs_active == true)
-  {
-    SPIFFS.remove(path);
-  }
-  else if (littlefs_active == true)
-  {
-    LittleFS.remove(path);
-  }
-  else
-  {
-    FFat.remove(path);
-  }
+#if defined(ESP32)
+  LittleFS.remove(path);
+#elif defined(ESP8266)
+  LittleFS.remove(path);
+#endif
 }
 
 boolean existsFile(const char *path)
 {
   fs::File file;
-  if (spiffs_active == true)
-  {
-    file = SPIFFS.open(path, FILE_READ);
-  }
-  else if (littlefs_active == true)
-  {
-    file = LittleFS.open(path, FILE_READ);
-  }
-  else
-  {
-    file = FFat.open(path, FILE_READ);
-  }
+#if defined(ESP32)
+  file = LittleFS.open(path, FILE_READ);
+#elif defined(ESP8266)
+  file = LittleFS.open(path, "r");
+#endif
   if (!file || file.isDirectory())
   {
     file.close();
@@ -171,35 +115,17 @@ boolean existsFile(const char *path)
 
 void renameFile(const char *path1, const char *path2)
 {
-  if (spiffs_active == true)
-  {
-    SPIFFS.rename(path1, path2);
-  }
-  else if (littlefs_active == true)
-  {
-    LittleFS.rename(path1, path2);
-  }
-  else
-  {
-    FFat.rename(path1, path2);
-  }
+  LittleFS.rename(path1, path2);
 }
 
 void writeFile(const char *path, const char *message)
 {
   fs::File file;
-  if (spiffs_active == true)
-  {
-    file = SPIFFS.open(path, FILE_WRITE);
-  }
-  else if (littlefs_active == true)
-  {
-    file = LittleFS.open(path, FILE_WRITE);
-  }
-  else
-  {
-    file = FFat.open(path, FILE_WRITE);
-  }
+#if defined(ESP32)
+  file = LittleFS.open(path, FILE_WRITE);
+#elif defined(ESP8266)
+  file = LittleFS.open(path, "w");
+#endif
   if (!file)
   {
     return;
@@ -216,18 +142,11 @@ void writeFile(const char *path, const char *message)
 void writeMessagesToFS()
 {
   fs::File messagesFS;
-  if (spiffs_active == true)
-  {
-    messagesFS = SPIFFS.open("/messages.json", FILE_WRITE);
-  }
-  else if (littlefs_active == true)
-  {
-    messagesFS = LittleFS.open("/messages.json", FILE_WRITE);
-  }
-  else
-  {
-    messagesFS = FFat.open("/messages.json", FILE_WRITE);
-  }
+#if defined(ESP32)
+  messagesFS = LittleFS.open("/messages.json", FILE_WRITE);
+#elif defined(ESP8266)
+  messagesFS = LittleFS.open("/messages.json", "w");
+#endif
   if (!messagesFS)
   {
     return;
@@ -252,18 +171,11 @@ void writeMessagesToFS()
 void readMessagesFromFS()
 {
   fs::File messagesFS;
-  if (spiffs_active == true)
-  {
-    messagesFS = SPIFFS.open("/messages.json", FILE_READ);
-  }
-  else if (littlefs_active == true)
-  {
-    messagesFS = LittleFS.open("/messages.json", FILE_READ);
-  }
-  else
-  {
-    messagesFS = FFat.open("/messages.json", FILE_READ);
-  }
+#if defined(ESP32)
+  messagesFS = LittleFS.open("/messages.json", FILE_READ);
+#elif defined(ESP8266)
+  messagesFS = LittleFS.open("/messages.json", "r");
+#endif
   if (!messagesFS)
   {
     return;
@@ -290,18 +202,11 @@ void readMessagesFromFS()
 void writeAlarmsToFS()
 {
   fs::File alarmsFS;
-  if (spiffs_active == true)
-  {
-    alarmsFS = SPIFFS.open("/alarms.json", FILE_WRITE);
-  }
-  else if (littlefs_active == true)
-  {
-    alarmsFS = LittleFS.open("/alarms.json", FILE_WRITE);
-  }
-  else
-  {
-    alarmsFS = FFat.open("/alarms.json", FILE_WRITE);
-  }
+#if defined(ESP32)
+  alarmsFS = LittleFS.open("/alarms.json", FILE_WRITE);
+#elif defined(ESP8266)
+  alarmsFS = LittleFS.open("/alarms.json", "w");
+#endif
   if (!alarmsFS)
   {
     return;
@@ -336,18 +241,11 @@ void writeAlarmsToFS()
 void readAlarmsFromFS()
 {
   fs::File alarmsFS;
-  if (spiffs_active == true)
-  {
-    alarmsFS = SPIFFS.open("/alarms.json", FILE_READ);
-  }
-  else if (littlefs_active == true)
-  {
-    alarmsFS = LittleFS.open("/alarms.json", FILE_READ);
-  }
-  else
-  {
-    alarmsFS = FFat.open("/alarms.json", FILE_READ);
-  }
+#if defined(ESP32)
+  alarmsFS = LittleFS.open("/alarms.json", FILE_READ);
+#elif defined(ESP8266)
+  alarmsFS = LittleFS.open("/alarms.json", "r");
+#endif
   if (!alarmsFS)
   {
     return;
@@ -374,18 +272,11 @@ void readAlarmsFromFS()
 void writeTime()
 {
   fs::File timeFS;
-  if (spiffs_active == true)
-  {
-    timeFS = SPIFFS.open("/time.json", FILE_WRITE);
-  }
-  else if (littlefs_active == true)
-  {
-    timeFS = LittleFS.open("/time.json", FILE_WRITE);
-  }
-  else
-  {
-    timeFS = FFat.open("/time.json", FILE_WRITE);
-  }
+#if defined(ESP32)
+  timeFS = LittleFS.open("/time.json", FILE_WRITE);
+#elif defined(ESP8266)
+  timeFS = LittleFS.open("/time.json", "w");
+#endif
   if (!timeFS)
   {
     return;
@@ -408,18 +299,11 @@ void writeTime()
 void readTime()
 {
   fs::File timeFS;
-  if (spiffs_active == true)
-  {
-    timeFS = SPIFFS.open("/time.json", FILE_READ);
-  }
-  else if (littlefs_active == true)
-  {
-    timeFS = LittleFS.open("/time.json", FILE_READ);
-  }
-  else
-  {
-    timeFS = FFat.open("/time.json", FILE_READ);
-  }
+#if defined(ESP32)
+  timeFS = LittleFS.open("/time.json", FILE_READ);
+#elif defined(ESP8266)
+  timeFS = LittleFS.open("/time.json", "r");
+#endif
   if (!timeFS)
   {
     return;
@@ -448,18 +332,11 @@ void readTime()
 void writeConfig()
 {
   fs::File settingsFS;
-  if (spiffs_active == true)
-  {
-    settingsFS = SPIFFS.open("/configuration.json", FILE_WRITE);
-  }
-  else if (littlefs_active == true)
-  {
-    settingsFS = LittleFS.open("/configuration.json", FILE_WRITE);
-  }
-  else
-  {
-    settingsFS = FFat.open("/configuration.json", FILE_WRITE);
-  }
+#if defined(ESP32)
+  settingsFS = LittleFS.open("/configuration.json", FILE_WRITE);
+#elif defined(ESP8266)
+  settingsFS = LittleFS.open("/configuration.json", "w");
+#endif
   if (!settingsFS)
   {
     return;
@@ -492,18 +369,11 @@ void writeConfig()
 void readConfig()
 {
   fs::File settingsFS;
-  if (spiffs_active == true)
-  {
-    settingsFS = SPIFFS.open("/configuration.json", FILE_READ);
-  }
-  else if (littlefs_active == true)
-  {
-    settingsFS = LittleFS.open("/configuration.json", FILE_READ);
-  }
-  else
-  {
-    settingsFS = FFat.open("/configuration.json", FILE_READ);
-  }
+#if defined(ESP32)
+  settingsFS = LittleFS.open("/configuration.json", FILE_READ);
+#elif defined(ESP8266)
+  settingsFS = LittleFS.open("/configuration.json", "r");
+#endif
   if (!settingsFS)
   {
     return;
@@ -548,18 +418,11 @@ void readConfig()
 boolean pushJPEGFromFS(const char *filename, int16_t xpos, int16_t ypos, TFT_eSPI &tft)
 {
   fs::File jpegFS;
-  if (spiffs_active == true)
-  {
-    jpegFS = SPIFFS.open(filename, FILE_READ);
-  }
-  else if (littlefs_active == true)
-  {
-    jpegFS = LittleFS.open(filename, FILE_READ);
-  }
-  else
-  {
-    jpegFS = FFat.open(filename, FILE_READ);
-  }
+#if defined(ESP32)
+  jpegFS = LittleFS.open(filename, FILE_READ);
+#elif defined(ESP8266)
+  jpegFS = LittleFS.open(filename, "r");
+#endif
   if (!jpegFS)
   {
     return false;
@@ -649,18 +512,11 @@ boolean pushJPEGFromFS(const char *filename, int16_t xpos, int16_t ypos, TFT_eSP
 boolean pushBMPFromFS(const char *filename, int16_t x, int16_t y, TFT_eSPI &tft)
 {
   fs::File bmpFS;
-  if (spiffs_active == true)
-  {
-    bmpFS = SPIFFS.open(filename, FILE_READ);
-  }
-  else if (littlefs_active == true)
-  {
-    bmpFS = LittleFS.open(filename, FILE_READ);
-  }
-  else
-  {
-    bmpFS = FFat.open(filename, FILE_READ);
-  }
+#if defined(ESP32)
+  bmpFS = LittleFS.open(filename, FILE_READ);
+#elif defined(ESP8266)
+  bmpFS = LittleFS.open(filename, "r");
+#endif
   if (!bmpFS)
   {
     return false;
@@ -716,10 +572,30 @@ boolean pushBMPFromFS(const char *filename, int16_t x, int16_t y, TFT_eSPI &tft)
   return false;
 }
 
+boolean pushPNGFromFS(const char *filename, int16_t x, int16_t y, TFT_eSPI &tft)
+{
+  fs::File pngFS;
+#if defined(ESP32)
+  pngFS = LittleFS.open(filename, FILE_READ);
+#elif defined(ESP8266)
+  pngFS = LittleFS.open(filename, "r");
+#endif
+  if (!pngFS)
+  {
+    return false;
+  }
+
+  pngFS.close();
+  return false;
+}
+
 void pushImageFromFS(const char *filename, int16_t x, int16_t y, TFT_eSPI &tft)
 {
   if (pushJPEGFromFS(filename, x, y, tft) == false)
   {
-    pushBMPFromFS(filename, x, y, tft);
+    if (pushBMPFromFS(filename, x, y, tft) == false)
+    {
+      pushPNGFromFS(filename, x, y, tft);
+    }
   }
 }

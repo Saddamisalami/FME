@@ -80,7 +80,7 @@ void play_coffindance(int buzzer)
 #if defined(ESP32)
         ledcWriteTone(soundChannel, melody_coffindance[thisNote]);
 #else
-        tone(buzzer, melody_coffindance[thisNote], noteDuration *.);
+        tone(buzzer, melody_coffindance[thisNote], duration * 0.9);
 #endif
 
         // Wait for the specief duration before playing the next note.
