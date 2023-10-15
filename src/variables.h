@@ -15,6 +15,13 @@ extern unsigned int relay_1_pin;
 extern boolean relay_1_mode;
 extern boolean relay_1_state;
 #endif
+#if (INCLUDE_LORA)
+extern unsigned int lora_1_pin_nss;
+extern unsigned int lora_1_pin_dio0;
+extern unsigned int lora_1_pin_reset;
+extern unsigned int lora_1_pin_dio1;
+extern boolean lora_1_active;
+#endif
 extern unsigned int sound_1_pin;
 // extern unsigned int sound_2_pin;
 extern boolean led_1_power;
@@ -66,6 +73,9 @@ extern String display_theme;
 extern unsigned int display_level;
 // Debug
 extern boolean debug_mode;
+// Special Modes
+extern boolean giessen_mode;
+extern boolean closed_mode;
 // Standort
 extern unsigned int cityId;
 
@@ -78,7 +88,7 @@ extern unsigned long time_page_3;
 extern boolean running_Alarm;
 
 /*
- * Wird gesetzt wenn Config geändert wird. Löst das neu speichern der Config aus
+ * Wird gesetzt wenn Config geändert wird. Lässt das neu speichern der Config aus
  */
 extern boolean prefChanged;
 
