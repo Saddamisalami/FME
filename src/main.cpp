@@ -40,8 +40,8 @@ unsigned long time_page_3 = 20000;
 boolean running_Alarm = false;
 
 // Config
-boolean spiffs_active = false;
-boolean littlefs_active = true;
+boolean spiffs_active = true;
+boolean littlefs_active = false;
 unsigned int chip_id = 0;
 
 String i18n = "de";
