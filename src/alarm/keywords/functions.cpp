@@ -2002,305 +2002,6 @@ String getAlarmTypeText_DE_HB(unsigned int currentType)
 	}
 	return currentAlarmText;
 }
-String getAlarmTypeText_DE_HH(unsigned int currentType)
-{
-	String currentAlarmText = "";
-	switch (currentType)
-	{
-	case 101:
-	{
-		currentAlarmText = F("F 1");
-		break;
-	}
-	case 102:
-	{
-		currentAlarmText = F("F 2");
-		break;
-	}
-	case 103:
-	{
-		currentAlarmText = F("F 2 Y");
-		break;
-	}
-	case 104:
-	{
-		currentAlarmText = F("F 3");
-		break;
-	}
-	case 105:
-	{
-		currentAlarmText = F("F 3 Y");
-		break;
-	}
-	case 106:
-	{
-		currentAlarmText = F("F 4");
-		break;
-	}
-	case 107:
-	{
-		currentAlarmText = F("F BMA");
-		break;
-	}
-	case 108:
-	{
-		currentAlarmText = F("F BUS Y");
-		break;
-	}
-	case 109:
-	{
-		currentAlarmText = F("F FLUG 1 Y");
-		break;
-	}
-	case 110:
-	{
-		currentAlarmText = F("F FLUG 2 Y");
-		break;
-	}
-	case 111:
-	{
-		currentAlarmText = F("F GAS 1");
-		break;
-	}
-	case 112:
-	{
-		currentAlarmText = F("F GAS 2");
-		break;
-	}
-	case 113:
-	{
-		currentAlarmText = F("F LKW");
-		break;
-	}
-	case 114:
-	{
-		currentAlarmText = F("F ZUG");
-		break;
-	}
-	case 115:
-	{
-		currentAlarmText = F("F ZUG Y");
-		break;
-	}
-	case 116:
-	{
-		currentAlarmText = F("F RWM");
-		break;
-	}
-	case 117:
-	{
-		currentAlarmText = F("F SCHIFF 1");
-		break;
-	}
-	case 118:
-	{
-		currentAlarmText = F("F SCHIFF 2");
-		break;
-	}
-	case 119:
-	{
-		currentAlarmText = F("F SCHIFF 2 Y");
-		break;
-	}
-	case 120:
-	{
-		currentAlarmText = F("F SCHIFF 2 GEFAHR");
-		break;
-	}
-	case 121:
-	{
-		currentAlarmText = F("F WALD 1");
-		break;
-	}
-	case 122:
-	{
-		currentAlarmText = F("F WALD 2");
-		break;
-	}
-	case 201:
-	{
-		currentAlarmText = F("H 1");
-		break;
-	}
-	case 202:
-	{
-		currentAlarmText = F("H 1 Y");
-		break;
-	}
-	case 203:
-	{
-		currentAlarmText = F("H 2");
-		break;
-	}
-	case 204:
-	{
-		currentAlarmText = F("H ABST Y");
-		break;
-	}
-	case 205:
-	{
-		currentAlarmText = F("H ELEK");
-		break;
-	}
-	case 206:
-	{
-		currentAlarmText = F("H EINST Y");
-		break;
-	}
-	case 207:
-	{
-		currentAlarmText = F("H FLUSS");
-		break;
-	}
-	case 208:
-	{
-		currentAlarmText = F("H FLUSS Y");
-		break;
-	}
-	case 209:
-	{
-		currentAlarmText = F("H WASS Y");
-		break;
-	}
-	case 210:
-	{
-		currentAlarmText = F("H GAS 1");
-		break;
-	}
-	case 211:
-	{
-		currentAlarmText = F("H GAS 2");
-		break;
-	}
-	case 212:
-	{
-		currentAlarmText = F("H GEFAHR 1");
-		break;
-	}
-	case 213:
-	{
-		currentAlarmText = F("H GEFAHR 2");
-		break;
-	}
-	case 214:
-	{
-		currentAlarmText = F("H KLEMM 1 Y");
-		break;
-	}
-	case 215:
-	{
-		currentAlarmText = F("H KLEMM 2 Y");
-		break;
-	}
-	case 216:
-	{
-		currentAlarmText = F("H ÖL FLUSS");
-		break;
-	}
-	case 217:
-	{
-		currentAlarmText = F("H ÖL WASS");
-		break;
-	}
-	case 218:
-	{
-		currentAlarmText = F("H RADIOAKTIV");
-		break;
-	}
-	case 219:
-	{
-		currentAlarmText = F("H SCHIFF");
-		break;
-	}
-	case 220:
-	{
-		currentAlarmText = F("H SCHIFF Y");
-		break;
-	}
-	case 221:
-	{
-		currentAlarmText = F("H ZUG 1 Y");
-		break;
-	}
-	case 222:
-	{
-		currentAlarmText = F("H ZUG 2 Y");
-		break;
-	}
-	case 301:
-	{
-		currentAlarmText = F("U UNWETTER STURM");
-		break;
-	}
-	case 302:
-	{
-		currentAlarmText = F("U UNWETTER WASSER");
-		break;
-	}
-	case 401:
-	{
-		currentAlarmText = F("K");
-		break;
-	}
-	case 402:
-	{
-		currentAlarmText = F("R 0 K");
-		break;
-	}
-	case 403:
-	{
-		currentAlarmText = F("R 0");
-		break;
-	}
-	case 404:
-	{
-		currentAlarmText = F("R 1");
-		break;
-	}
-	case 405:
-	{
-		currentAlarmText = F("R 2");
-		break;
-	}
-	case 406:
-	{
-		currentAlarmText = F("R 3");
-		break;
-	}
-	case 407:
-	{
-		currentAlarmText = F("R LEBEL");
-		break;
-	}
-	case 408:
-	{
-		currentAlarmText = F("R MANV");
-		break;
-	}
-	case 501 ... 599:
-	{
-		currentAlarmText = getAlarmTypeText_DE_THW(currentType);
-		break;
-	}
-	case 601 ... 699:
-	{
-		currentAlarmText = getAlarmTypeText_DE_POL(currentType);
-		break;
-	}
-
-	case 1:
-	{
-		currentAlarmText = F("FME Test");
-		break;
-	}
-	default:
-	{
-		currentAlarmText = F("UNKLAR");
-		break;
-	}
-	}
-	return currentAlarmText;
-}
 String getAlarmTypeText_DE_HE(unsigned int currentType)
 {
 	String currentAlarmText = "";
@@ -2579,6 +2280,305 @@ String getAlarmTypeText_DE_HE(unsigned int currentType)
 	case 409:
 	{
 		currentAlarmText = F("R MRW");
+		break;
+	}
+	case 501 ... 599:
+	{
+		currentAlarmText = getAlarmTypeText_DE_THW(currentType);
+		break;
+	}
+	case 601 ... 699:
+	{
+		currentAlarmText = getAlarmTypeText_DE_POL(currentType);
+		break;
+	}
+
+	case 1:
+	{
+		currentAlarmText = F("FME Test");
+		break;
+	}
+	default:
+	{
+		currentAlarmText = F("UNKLAR");
+		break;
+	}
+	}
+	return currentAlarmText;
+}
+String getAlarmTypeText_DE_HH(unsigned int currentType)
+{
+	String currentAlarmText = "";
+	switch (currentType)
+	{
+	case 101:
+	{
+		currentAlarmText = F("F 1");
+		break;
+	}
+	case 102:
+	{
+		currentAlarmText = F("F 2");
+		break;
+	}
+	case 103:
+	{
+		currentAlarmText = F("F 2 Y");
+		break;
+	}
+	case 104:
+	{
+		currentAlarmText = F("F 3");
+		break;
+	}
+	case 105:
+	{
+		currentAlarmText = F("F 3 Y");
+		break;
+	}
+	case 106:
+	{
+		currentAlarmText = F("F 4");
+		break;
+	}
+	case 107:
+	{
+		currentAlarmText = F("F BMA");
+		break;
+	}
+	case 108:
+	{
+		currentAlarmText = F("F BUS Y");
+		break;
+	}
+	case 109:
+	{
+		currentAlarmText = F("F FLUG 1 Y");
+		break;
+	}
+	case 110:
+	{
+		currentAlarmText = F("F FLUG 2 Y");
+		break;
+	}
+	case 111:
+	{
+		currentAlarmText = F("F GAS 1");
+		break;
+	}
+	case 112:
+	{
+		currentAlarmText = F("F GAS 2");
+		break;
+	}
+	case 113:
+	{
+		currentAlarmText = F("F LKW");
+		break;
+	}
+	case 114:
+	{
+		currentAlarmText = F("F ZUG");
+		break;
+	}
+	case 115:
+	{
+		currentAlarmText = F("F ZUG Y");
+		break;
+	}
+	case 116:
+	{
+		currentAlarmText = F("F RWM");
+		break;
+	}
+	case 117:
+	{
+		currentAlarmText = F("F SCHIFF 1");
+		break;
+	}
+	case 118:
+	{
+		currentAlarmText = F("F SCHIFF 2");
+		break;
+	}
+	case 119:
+	{
+		currentAlarmText = F("F SCHIFF 2 Y");
+		break;
+	}
+	case 120:
+	{
+		currentAlarmText = F("F SCHIFF 2 GEFAHR");
+		break;
+	}
+	case 121:
+	{
+		currentAlarmText = F("F WALD 1");
+		break;
+	}
+	case 122:
+	{
+		currentAlarmText = F("F WALD 2");
+		break;
+	}
+	case 201:
+	{
+		currentAlarmText = F("H 1");
+		break;
+	}
+	case 202:
+	{
+		currentAlarmText = F("H 1 Y");
+		break;
+	}
+	case 203:
+	{
+		currentAlarmText = F("H 2");
+		break;
+	}
+	case 204:
+	{
+		currentAlarmText = F("H ABST Y");
+		break;
+	}
+	case 205:
+	{
+		currentAlarmText = F("H ELEK");
+		break;
+	}
+	case 206:
+	{
+		currentAlarmText = F("H EINST Y");
+		break;
+	}
+	case 207:
+	{
+		currentAlarmText = F("H FLUSS");
+		break;
+	}
+	case 208:
+	{
+		currentAlarmText = F("H FLUSS Y");
+		break;
+	}
+	case 209:
+	{
+		currentAlarmText = F("H WASS Y");
+		break;
+	}
+	case 210:
+	{
+		currentAlarmText = F("H GAS 1");
+		break;
+	}
+	case 211:
+	{
+		currentAlarmText = F("H GAS 2");
+		break;
+	}
+	case 212:
+	{
+		currentAlarmText = F("H GEFAHR 1");
+		break;
+	}
+	case 213:
+	{
+		currentAlarmText = F("H GEFAHR 2");
+		break;
+	}
+	case 214:
+	{
+		currentAlarmText = F("H KLEMM 1 Y");
+		break;
+	}
+	case 215:
+	{
+		currentAlarmText = F("H KLEMM 2 Y");
+		break;
+	}
+	case 216:
+	{
+		currentAlarmText = F("H ÖL FLUSS");
+		break;
+	}
+	case 217:
+	{
+		currentAlarmText = F("H ÖL WASS");
+		break;
+	}
+	case 218:
+	{
+		currentAlarmText = F("H RADIOAKTIV");
+		break;
+	}
+	case 219:
+	{
+		currentAlarmText = F("H SCHIFF");
+		break;
+	}
+	case 220:
+	{
+		currentAlarmText = F("H SCHIFF Y");
+		break;
+	}
+	case 221:
+	{
+		currentAlarmText = F("H ZUG 1 Y");
+		break;
+	}
+	case 222:
+	{
+		currentAlarmText = F("H ZUG 2 Y");
+		break;
+	}
+	case 301:
+	{
+		currentAlarmText = F("U UNWETTER STURM");
+		break;
+	}
+	case 302:
+	{
+		currentAlarmText = F("U UNWETTER WASSER");
+		break;
+	}
+	case 401:
+	{
+		currentAlarmText = F("K");
+		break;
+	}
+	case 402:
+	{
+		currentAlarmText = F("R 0 K");
+		break;
+	}
+	case 403:
+	{
+		currentAlarmText = F("R 0");
+		break;
+	}
+	case 404:
+	{
+		currentAlarmText = F("R 1");
+		break;
+	}
+	case 405:
+	{
+		currentAlarmText = F("R 2");
+		break;
+	}
+	case 406:
+	{
+		currentAlarmText = F("R 3");
+		break;
+	}
+	case 407:
+	{
+		currentAlarmText = F("R LEBEL");
+		break;
+	}
+	case 408:
+	{
+		currentAlarmText = F("R MANV");
 		break;
 	}
 	case 501 ... 599:
@@ -2911,232 +2911,192 @@ String getAlarmTypeText_DE_NI(unsigned int currentType)
 	{
 	case 101:
 	{
-		currentAlarmText = F("F 1");
+		currentAlarmText = F("F1");
 		break;
 	}
 	case 102:
 	{
-		currentAlarmText = F("F 2");
+		currentAlarmText = F("F2");
 		break;
 	}
 	case 103:
 	{
-		currentAlarmText = F("F 2 Y");
+		currentAlarmText = F("F2 Y");
 		break;
 	}
 	case 104:
 	{
-		currentAlarmText = F("F 3");
+		currentAlarmText = F("F3");
 		break;
 	}
 	case 105:
 	{
-		currentAlarmText = F("F 3 Y");
+		currentAlarmText = F("F3 Y");
 		break;
 	}
 	case 106:
 	{
-		currentAlarmText = F("F 4");
+		currentAlarmText = F("F4");
 		break;
 	}
 	case 107:
 	{
-		currentAlarmText = F("F BMA");
+		currentAlarmText = F("F4 Y");
 		break;
 	}
 	case 108:
 	{
-		currentAlarmText = F("F BUS Y");
+		currentAlarmText = F("F5");
 		break;
 	}
 	case 109:
 	{
-		currentAlarmText = F("F FLUG 1 Y");
+		currentAlarmText = F("F5 Y");
 		break;
 	}
 	case 110:
 	{
-		currentAlarmText = F("F FLUG 2 Y");
+		currentAlarmText = F("F6");
 		break;
 	}
 	case 111:
 	{
-		currentAlarmText = F("F GAS 1");
+		currentAlarmText = F("F6 Y");
 		break;
 	}
 	case 112:
 	{
-		currentAlarmText = F("F GAS 2");
+		currentAlarmText = F("FW1");
 		break;
 	}
 	case 113:
 	{
-		currentAlarmText = F("F LKW");
+		currentAlarmText = F("FW2");
 		break;
 	}
 	case 114:
 	{
-		currentAlarmText = F("F ZUG");
+		currentAlarmText = F("FW3");
 		break;
 	}
 	case 115:
 	{
-		currentAlarmText = F("F ZUG Y");
+		currentAlarmText = F("FW4");
 		break;
 	}
 	case 116:
 	{
-		currentAlarmText = F("F RWM");
+		currentAlarmText = F("FW5");
 		break;
 	}
 	case 117:
 	{
-		currentAlarmText = F("F SCHIFF 1");
+		currentAlarmText = F("FK1");
 		break;
 	}
 	case 118:
 	{
-		currentAlarmText = F("F SCHIFF 2");
+		currentAlarmText = F("FK1 Y");
 		break;
 	}
 	case 119:
 	{
-		currentAlarmText = F("F SCHIFF 2 Y");
+		currentAlarmText = F("FK2");
 		break;
 	}
 	case 120:
 	{
-		currentAlarmText = F("F SCHIFF 2 GEFAHR");
+		currentAlarmText = F("FK2 Y");
 		break;
 	}
 	case 121:
 	{
-		currentAlarmText = F("F WALD 1");
+		currentAlarmText = F("BMA");
 		break;
 	}
 	case 122:
 	{
-		currentAlarmText = F("F WALD 2");
+		currentAlarmText = F("WBK");
+		break;
+	}
+	case 123:
+	{
+		currentAlarmText = F("SON");
 		break;
 	}
 	case 201:
 	{
-		currentAlarmText = F("H 1");
+		currentAlarmText = F("THY");
 		break;
 	}
 	case 202:
 	{
-		currentAlarmText = F("H 1 Y");
+		currentAlarmText = F("THV");
 		break;
 	}
 	case 203:
 	{
-		currentAlarmText = F("H 2");
+		currentAlarmText = F("THV Y");
 		break;
 	}
 	case 204:
 	{
-		currentAlarmText = F("H ABST Y");
+		currentAlarmText = F("TH");
 		break;
 	}
 	case 205:
 	{
-		currentAlarmText = F("H ELEK");
+		currentAlarmText = F("THD");
 		break;
 	}
 	case 206:
 	{
-		currentAlarmText = F("H EINST Y");
+		currentAlarmText = F("THR");
 		break;
 	}
 	case 207:
 	{
-		currentAlarmText = F("H FLUSS");
+		currentAlarmText = F("THW");
 		break;
 	}
 	case 208:
 	{
-		currentAlarmText = F("H FLUSS Y");
+		currentAlarmText = F("THW Y");
 		break;
 	}
 	case 209:
 	{
-		currentAlarmText = F("H WASS Y");
+		currentAlarmText = F("THT");
 		break;
 	}
 	case 210:
 	{
-		currentAlarmText = F("H GAS 1");
+		currentAlarmText = F("THB");
 		break;
 	}
 	case 211:
 	{
-		currentAlarmText = F("H GAS 2");
+		currentAlarmText = F("THS");
 		break;
 	}
 	case 212:
 	{
-		currentAlarmText = F("H GEFAHR 1");
+		currentAlarmText = F("UNW");
 		break;
 	}
 	case 213:
 	{
-		currentAlarmText = F("H GEFAHR 2");
-		break;
-	}
-	case 214:
-	{
-		currentAlarmText = F("H KLEMM 1 Y");
-		break;
-	}
-	case 215:
-	{
-		currentAlarmText = F("H KLEMM 2 Y");
-		break;
-	}
-	case 216:
-	{
-		currentAlarmText = F("H ÖL FLUSS");
-		break;
-	}
-	case 217:
-	{
-		currentAlarmText = F("H ÖL WASS");
-		break;
-	}
-	case 218:
-	{
-		currentAlarmText = F("H RADIOAKTIV");
-		break;
-	}
-	case 219:
-	{
-		currentAlarmText = F("H SCHIFF");
-		break;
-	}
-	case 220:
-	{
-		currentAlarmText = F("H SCHIFF Y");
-		break;
-	}
-	case 221:
-	{
-		currentAlarmText = F("H ZUG 1 Y");
-		break;
-	}
-	case 222:
-	{
-		currentAlarmText = F("H ZUG 2 Y");
+		currentAlarmText = F("FBZ");
 		break;
 	}
 	case 301:
 	{
-		currentAlarmText = F("U UNWETTER STURM");
+		currentAlarmText = F("GEF1");
 		break;
 	}
 	case 302:
 	{
-		currentAlarmText = F("U UNWETTER WASSER");
+		currentAlarmText = F("GEF2");
 		break;
 	}
 	case 401:
@@ -3189,7 +3149,6 @@ String getAlarmTypeText_DE_NI(unsigned int currentType)
 		currentAlarmText = getAlarmTypeText_DE_POL(currentType);
 		break;
 	}
-
 	case 1:
 	{
 		currentAlarmText = F("FME Test");
@@ -3343,7 +3302,7 @@ String getAlarmTypeText_DE_NW(unsigned int currentType)
 		currentAlarmText = F("GAS2");
 		break;
 	}
-		case 401:
+	case 401:
 	{
 		currentAlarmText = F("K");
 		break;
@@ -11940,287 +11899,246 @@ String getAlarmSubText_DE_NI(unsigned int currentSub)
 	String currentAlarmText = "";
 	switch (currentSub)
 	{
-	case 101:
+	case 10101:
 	{
-		currentAlarmText = F("F 1");
+		currentAlarmText = F("F1");
 		break;
 	}
-	case 102:
+	case 10201:
 	{
-		currentAlarmText = F("F 2");
+		currentAlarmText = F("F2");
 		break;
 	}
-	case 103:
+	case 10301:
 	{
-		currentAlarmText = F("F 2 Y");
+		currentAlarmText = F("F2 Y");
 		break;
 	}
-	case 104:
+	case 10401:
 	{
-		currentAlarmText = F("F 3");
+		currentAlarmText = F("F3");
 		break;
 	}
-	case 105:
+	case 10501:
 	{
-		currentAlarmText = F("F 3 Y");
+		currentAlarmText = F("F3 Y");
 		break;
 	}
-	case 106:
+	case 10601:
 	{
-		currentAlarmText = F("F 4");
+		currentAlarmText = F("F4");
 		break;
 	}
-	case 107:
+	case 10701:
 	{
-		currentAlarmText = F("F BMA");
+		currentAlarmText = F("F4 Y");
 		break;
 	}
-	case 108:
+	case 10801:
 	{
-		currentAlarmText = F("F BUS Y");
+		currentAlarmText = F("F5");
 		break;
 	}
-	case 109:
+	case 10901:
 	{
-		currentAlarmText = F("F FLUG 1 Y");
+		currentAlarmText = F("F5 Y");
 		break;
 	}
-	case 110:
+	case 11001:
 	{
-		currentAlarmText = F("F FLUG 2 Y");
+		currentAlarmText = F("F6");
 		break;
 	}
-	case 111:
+	case 11101:
 	{
-		currentAlarmText = F("F GAS 1");
+		currentAlarmText = F("F6 Y");
 		break;
 	}
-	case 112:
+	case 11201:
 	{
-		currentAlarmText = F("F GAS 2");
+		currentAlarmText = F("FW1");
 		break;
 	}
-	case 113:
+	case 11301:
 	{
-		currentAlarmText = F("F LKW");
+		currentAlarmText = F("FW2");
 		break;
 	}
-	case 114:
+	case 11401:
 	{
-		currentAlarmText = F("F ZUG");
+		currentAlarmText = F("FW3");
 		break;
 	}
-	case 115:
+	case 11501:
 	{
-		currentAlarmText = F("F ZUG Y");
+		currentAlarmText = F("FW4");
 		break;
 	}
-	case 116:
+	case 11601:
 	{
-		currentAlarmText = F("F RWM");
+		currentAlarmText = F("FW5");
 		break;
 	}
-	case 117:
+	case 11701:
 	{
-		currentAlarmText = F("F SCHIFF 1");
+		currentAlarmText = F("FK1");
 		break;
 	}
-	case 118:
+	case 11801:
 	{
-		currentAlarmText = F("F SCHIFF 2");
+		currentAlarmText = F("FK1 Y");
 		break;
 	}
-	case 119:
+	case 11901:
 	{
-		currentAlarmText = F("F SCHIFF 2 Y");
+		currentAlarmText = F("FK2");
 		break;
 	}
-	case 120:
+	case 12001:
 	{
-		currentAlarmText = F("F SCHIFF 2 GEFAHR");
+		currentAlarmText = F("FK2 Y");
 		break;
 	}
-	case 121:
+	case 12101:
 	{
-		currentAlarmText = F("F WALD 1");
+		currentAlarmText = F("BMA");
 		break;
 	}
-	case 122:
+	case 12201:
 	{
-		currentAlarmText = F("F WALD 2");
+		currentAlarmText = F("WBK");
 		break;
 	}
-	case 201:
+	case 12301:
 	{
-		currentAlarmText = F("H 1");
+		currentAlarmText = F("SON");
 		break;
 	}
-	case 202:
+	case 20101:
 	{
-		currentAlarmText = F("H 1 Y");
+		currentAlarmText = F("THY");
 		break;
 	}
-	case 203:
+	case 20201:
 	{
-		currentAlarmText = F("H 2");
+		currentAlarmText = F("THV");
 		break;
 	}
-	case 204:
+	case 20301:
 	{
-		currentAlarmText = F("H ABST Y");
+		currentAlarmText = F("THV Y");
 		break;
 	}
-	case 205:
+	case 20401:
 	{
-		currentAlarmText = F("H ELEK");
+		currentAlarmText = F("TH");
 		break;
 	}
-	case 206:
+	case 20501:
 	{
-		currentAlarmText = F("H EINST Y");
+		currentAlarmText = F("THD");
 		break;
 	}
-	case 207:
+	case 20601:
 	{
-		currentAlarmText = F("H FLUSS");
+		currentAlarmText = F("THR");
 		break;
 	}
-	case 208:
+	case 20701:
 	{
-		currentAlarmText = F("H FLUSS Y");
+		currentAlarmText = F("THW");
 		break;
 	}
-	case 209:
+	case 20801:
 	{
-		currentAlarmText = F("H WASS Y");
+		currentAlarmText = F("THW Y");
 		break;
 	}
-	case 210:
+	case 20901:
 	{
-		currentAlarmText = F("H GAS 1");
+		currentAlarmText = F("THT");
 		break;
 	}
-	case 211:
+	case 21001:
 	{
-		currentAlarmText = F("H GAS 2");
+		currentAlarmText = F("THB");
 		break;
 	}
-	case 212:
+	case 21101:
 	{
-		currentAlarmText = F("H GEFAHR 1");
+		currentAlarmText = F("THS");
 		break;
 	}
-	case 213:
+	case 21201:
 	{
-		currentAlarmText = F("H GEFAHR 2");
+		currentAlarmText = F("UNW");
 		break;
 	}
-	case 214:
+	case 21301:
 	{
-		currentAlarmText = F("H KLEMM 1 Y");
+		currentAlarmText = F("FBZ");
 		break;
 	}
-	case 215:
+	case 30101:
 	{
-		currentAlarmText = F("H KLEMM 2 Y");
+		currentAlarmText = F("GEF1");
 		break;
 	}
-	case 216:
+	case 30201:
 	{
-		currentAlarmText = F("H ÖL FLUSS");
+		currentAlarmText = F("GEF2");
 		break;
 	}
-	case 217:
-	{
-		currentAlarmText = F("H ÖL WASS");
-		break;
-	}
-	case 218:
-	{
-		currentAlarmText = F("H RADIOAKTIV");
-		break;
-	}
-	case 219:
-	{
-		currentAlarmText = F("H SCHIFF");
-		break;
-	}
-	case 220:
-	{
-		currentAlarmText = F("H SCHIFF Y");
-		break;
-	}
-	case 221:
-	{
-		currentAlarmText = F("H ZUG 1 Y");
-		break;
-	}
-	case 222:
-	{
-		currentAlarmText = F("H ZUG 2 Y");
-		break;
-	}
-	case 301:
-	{
-		currentAlarmText = F("U UNWETTER STURM");
-		break;
-	}
-	case 302:
-	{
-		currentAlarmText = F("U UNWETTER WASSER");
-		break;
-	}
-	case 401:
+	case 40101:
 	{
 		currentAlarmText = F("K");
 		break;
 	}
-	case 402:
+	case 40201:
 	{
 		currentAlarmText = F("R 0 K");
 		break;
 	}
-	case 403:
+	case 40301:
 	{
 		currentAlarmText = F("R 0");
 		break;
 	}
-	case 404:
+	case 40401:
 	{
 		currentAlarmText = F("R 1");
 		break;
 	}
-	case 405:
+	case 40501:
 	{
 		currentAlarmText = F("R 2");
 		break;
 	}
-	case 406:
+	case 40601:
 	{
 		currentAlarmText = F("R 3");
 		break;
 	}
-	case 407:
+	case 40701:
 	{
 		currentAlarmText = F("R LEBEL");
 		break;
 	}
-	case 408:
+	case 40801:
 	{
 		currentAlarmText = F("R MANV");
 		break;
 	}
 	case 501 ... 599:
 	{
-		currentAlarmText = getAlarmSubText_DE_THW(currentSub);
+		currentAlarmText = getAlarmTypeText_DE_THW(currentSub);
 		break;
 	}
 	case 601 ... 699:
 	{
-		currentAlarmText = getAlarmSubText_DE_POL(currentSub);
+		currentAlarmText = getAlarmTypeText_DE_POL(currentSub);
 		break;
 	}
-
 	case 1:
 	{
 		currentAlarmText = F("FME Test");

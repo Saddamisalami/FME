@@ -705,6 +705,15 @@ boolean pushBMPFromFS(const char *filename, int16_t x, int16_t y, TFT_eSPI &tft)
           r = *bptr++;
           *tptr++ = ((r & 0xF8) << 8) | ((g & 0xFC) << 3) | (b >> 3);
         }
+        boolean grayMode = true;
+        if (grayMode == true)
+        {
+          b = *bptr++;
+          g = *bptr++;
+          r = *bptr++;
+          *tptr++ = r * 0.3 + g * 0.59 + b * 0.11;
+        }
+
         // Push the pixel row to screen, pushImage will crop the line if needed
         // y is decremented as the BMP image is drawn bottom up
         tft.pushImage(x, y--, w, 1, (uint16_t *)lineBuffer);
